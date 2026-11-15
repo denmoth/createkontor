@@ -6,7 +6,8 @@ import com.timder.kontor.client.PowerOutletRenderer;
 import com.timder.kontor.game.block.*;
 import com.timder.kontor.game.block.buyer.BuyerDeskBlockEntity;
 import com.timder.kontor.game.block.employee.EmployeeDeskBlockEntity;
-import com.timder.kontor.game.block.power.PowerOutletBlockEntity;
+import com.timder.kontor.game.block.power.AndesitePowerOutletBlockEntity;
+import com.timder.kontor.game.block.power.BrassPowerOutletBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
 public final class KontorBlockEntities {
@@ -21,9 +22,15 @@ public final class KontorBlockEntities {
             .validBlocks(KontorBlocks.PAYMENT_TERMINAL)
             .register();
 
-    public static final BlockEntityEntry<PowerOutletBlockEntity> POWER_OUTLET = REGISTRATE
-            .blockEntity("power_outlet", PowerOutletBlockEntity::new)
+    public static final BlockEntityEntry<AndesitePowerOutletBlockEntity> ANDESITE_POWER_OUTLET = REGISTRATE
+            .blockEntity("andesite_power_outlet", AndesitePowerOutletBlockEntity::new)
             .validBlocks(KontorBlocks.ANDESITE_OUTLET)
+            .renderer(() -> PowerOutletRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<BrassPowerOutletBlockEntity> BRASS_POWER_OUTLET = REGISTRATE
+            .blockEntity("brass_power_outlet", BrassPowerOutletBlockEntity::new)
+            .validBlocks(KontorBlocks.BRASS_OUTLET)
             .renderer(() -> PowerOutletRenderer::new)
             .register();
 

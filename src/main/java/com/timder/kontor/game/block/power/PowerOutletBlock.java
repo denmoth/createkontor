@@ -9,8 +9,8 @@ import com.timder.kontor.core.company.legalform.LegalForms;
 import com.timder.kontor.data.KontorData;
 import com.timder.kontor.game.block.company.CompanyBindGate;
 import com.timder.kontor.game.block.company.CompanyBlockSupport;
-import com.timder.kontor.registry.KontorBlockEntities;
 import com.timder.kontor.util.ComponentFormatting;
+import java.util.function.Supplier;
 import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,13 +27,17 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
-public class PowerOutletBlock extends DirectionalKineticBlock implements IBE<PowerOutletBlockEntity> {
+public class PowerOutletBlock extends DirectionalKineticBlock implements IBE<AbstractPowerOutletBlockEntity> {
 
     public static final String RESOURCE_KEY = "power_outlet";
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
+    private final Supplier<BlockEntityType<? extends AbstractPowerOutletBlockEntity>> blockEntityType;
 
-    public PowerOutletBlock(Properties properties) {
+    public PowerOutletBlock(
+            Properties properties,
+            Supplier<BlockEntityType<? extends AbstractPowerOutletBlockEntity>> blockEntityType) {
         super(properties);
+        this.blockEntityType = blockEntityType;
         registerDefaultState(defaultBlockState().setValue(POWERED, false));
     }
 
@@ -74,7 +78,7 @@ public class PowerOutletBlock extends DirectionalKineticBlock implements IBE<Pow
             return;
         }
         level.setBlock(pos, state.setValue(POWERED, powered), Block.UPDATE_CLIENTS);
-        withBlockEntityDo(level, pos, PowerOutletBlockEntity::updateGeneratedRotation);
+        withBlockEntityDo(level, pos, AbstractPowerOutletBlockEntity::updateGeneratedRotation);
     }
 
     private static CompanyBindGate bindGate() {
@@ -106,12 +110,12 @@ public class PowerOutletBlock extends DirectionalKineticBlock implements IBE<Pow
     }
 
     @Override
-    public Class<PowerOutletBlockEntity> getBlockEntityClass() {
-        return PowerOutletBlockEntity.class;
+    public Class<AbstractPowerOutletBlockEntity> getBlockEntityClass() {
+        return AbstractPowerOutletBlockEntity.class;
     }
 
     @Override
-    public BlockEntityType<? extends PowerOutletBlockEntity> getBlockEntityType() {
-        return KontorBlockEntities.POWER_OUTLET.get();
+    public BlockEntityType<? extends AbstractPowerOutletBlockEntity> getBlockEntityType() {
+        return blockEntityType.get();
     }
 }

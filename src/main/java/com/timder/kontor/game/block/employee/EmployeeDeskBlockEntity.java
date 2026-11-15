@@ -321,16 +321,8 @@ public class EmployeeDeskBlockEntity extends AbstractCompanyBlockEntity {
                                 .withStyle(ComponentFormatting.DEFAULT))
                         .forGoggles(tooltip, 0);
                 CreateLang.builder()
-                        .add(ComponentFormatting.highlightStandard(
-                                Money.ofCents(salaryCents).toString()))
+                        .add(ComponentFormatting.moneyNegative(Money.ofCents(salaryCents)))
                         .forGoggles(tooltip, 1);
-
-                CreateLang.builder()
-                        .add(Component.translatable(
-                                        "goggle.createkontor.employee_desk.employed",
-                                        Component.literal("#" + employeeNumber))
-                                .withStyle(ComponentFormatting.DEFAULT))
-                        .forGoggles(tooltip, 0);
             }
             case VACANT -> {
                 line(tooltip, ComponentFormatting.standardTranslatable("goggle.createkontor.employee_desk.vacant"));
@@ -372,8 +364,7 @@ public class EmployeeDeskBlockEntity extends AbstractCompanyBlockEntity {
         CreateLang.builder()
                 .add(Component.translatable(
                                 "goggle.createkontor.employee_desk.offer_salary.value",
-                                ComponentFormatting.highlightStandard(
-                                        Money.ofCents(salaryCents).toString()))
+                                ComponentFormatting.moneyNegative(Money.ofCents(salaryCents)))
                         .withStyle(ChatFormatting.DARK_GRAY))
                 .forGoggles(tooltip, 1);
 
@@ -384,8 +375,7 @@ public class EmployeeDeskBlockEntity extends AbstractCompanyBlockEntity {
         CreateLang.builder()
                 .add(Component.translatable(
                                 "goggle.createkontor.employee_desk.offer_bonus.value",
-                                ComponentFormatting.highlightStandard(
-                                        Money.ofCents(bonusCents).toString()))
+                                ComponentFormatting.moneyNegative(Money.ofCents(bonusCents)))
                         .withStyle(ChatFormatting.DARK_GRAY))
                 .forGoggles(tooltip, 1);
     }

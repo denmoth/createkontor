@@ -2,6 +2,7 @@
   "values": [
     "createkontor:shipping_exit",
     "createkontor:payment_terminal",
-    "createkontor:andesite_outlet"
+    "createkontor:andesite_outlet",
+    "createkontor:brass_outlet"
   ]
 }

@@ -31,7 +31,11 @@ public class CreateKontorClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
         PonderIndex.addPlugin(new KontorPonderPlugin());
-        event.enqueueWork(() -> SimpleBlockEntityVisualizer.builder(KontorBlockEntities.POWER_OUTLET.get())
+        event.enqueueWork(() -> SimpleBlockEntityVisualizer.builder(KontorBlockEntities.ANDESITE_POWER_OUTLET.get())
+                .factory(OrientedRotatingVisual.of(AllPartialModels.SHAFT_HALF))
+                .skipVanillaRender(be -> true)
+                .apply());
+        event.enqueueWork(() -> SimpleBlockEntityVisualizer.builder(KontorBlockEntities.BRASS_POWER_OUTLET.get())
                 .factory(OrientedRotatingVisual.of(AllPartialModels.SHAFT_HALF))
                 .skipVanillaRender(be -> true)
                 .apply());

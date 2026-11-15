@@ -181,7 +181,6 @@ public class KontorLanguage {
 
         REGISTRATE.addRawLang(CompanyBlockSupport.GOGGLE_COMPANY_BLOCK, "Company:");
         REGISTRATE.addRawLang(CompanyBlockSupport.GOGGLE_COMPANY_BLOCK_UNBOUND, "Not bound to any company.");
-        REGISTRATE.addRawLang("goggle.createkontor.employee_desk.employed", "Employed: %s");
         REGISTRATE.addRawLang("goggle.createkontor.employee_desk.salary", "Daily salary:");
         REGISTRATE.addRawLang("goggle.createkontor.employee_desk.vacant", "Not staffed.");
         REGISTRATE.addRawLang(

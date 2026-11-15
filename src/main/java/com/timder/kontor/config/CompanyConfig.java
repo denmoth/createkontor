@@ -182,19 +182,19 @@ public class CompanyConfig {
         STORAGE_FEE_PER_ITEM_DAY_IN_DOLLARS = builder.comment(
                         "Dollars a company pays per day for each item stored in its logistics network (0.002 = 0.2 cents). The stock is sampled once per trading tick and billed at the end of the day, and when the connection ends")
                 .defineInRange("storageFeePerItemDayInDollars", 0.025, 0.0, 1_000.0);
-        ANDESITE_OUTLET_MAX_SU = builder.comment(
-                        "Most stress units a single andesite outlet can provide. Applies to every andesite outlet, not to the company as a whole")
-                .defineInRange("andesiteOutletMaxSu", 1_024, 1, 1_000_000);
-        BRASS_OUTLET_MAX_SU = builder.comment(
-                        "Most stress units a single brass outlet can buy, even if the connected network needs more. If it is below the andesite limit, the andesite limit is used")
-                .defineInRange("brassOutletMaxSu", 4_096, 1, 1_000_000);
-        OUTLET_MAX_RPM = builder.comment(
-                        "Highest speed in RPM (in either direction) that can be set on an outlet. Create's default maximum is 256")
-                .defineInRange("outletMaxRpm", 256, 1, 256);
 
         builder.pop();
 
         builder.comment("Stress units bought from outlets").push("power");
+        ANDESITE_OUTLET_MAX_SU = builder.comment(
+                        "Most stress units a single andesite outlet can provide. Applies to every andesite outlet, not to the company as a whole")
+                .defineInRange("andesiteOutletMaxSu", 16384, 1, 1_000_000);
+        BRASS_OUTLET_MAX_SU = builder.comment(
+                        "Most stress units a single brass outlet can buy, even if the connected network needs more. If it is below the andesite limit, the andesite limit is used")
+                .defineInRange("brassOutletMaxSu", 65536, 1, 1_000_000);
+        OUTLET_MAX_RPM = builder.comment(
+                        "Highest speed in RPM (in either direction) that can be set on an outlet. Create's default maximum is 256")
+                .defineInRange("outletMaxRpm", 256, 1, 256);
         SU_PRICE_PER_SU_DAY_IN_DOLLARS = builder.comment(
                         "Dollars a company pays for one stress unit provided by an andesite outlet for one day. The unbilled stress units are collected and billed at the next settled day")
                 .defineInRange("suPricePerSuDayInDollars", 0.20, 0.0, 1_000.0);
