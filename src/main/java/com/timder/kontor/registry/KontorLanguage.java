@@ -1482,6 +1482,51 @@ public class KontorLanguage {
         REGISTRATE.addRawLang(
                 "createkontor.ponder.payment_terminal_signal_modes.text_3",
                 "Impulse: One pulse at the start and one after the configured length.");
+
+        REGISTRATE.addRawLang("createkontor.ponder.andesite_outlet.header", "Buying Stress Units");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.andesite_outlet.text_1",
+                "The Andesite Outlet allows companies to buy stress units. The company it is bound to pays for them.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.andesite_outlet.text_2",
+                "The amount of stress units is set on the sides of the outlet.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.andesite_outlet.text_3",
+                "Speed and direction can be set on the back of the outlet.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.andesite_outlet.text_4",
+                "It only provides stress units while it is powered with redstone.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.andesite_outlet.text_5",
+                "The company is billed for every provided stress unit, whether they are used or not. Engineers Googles show the daily cost.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.andesite_outlet.text_6",
+                "If you need more information about outlets, ask a consultant.");
+
+        REGISTRATE.addRawLang("createkontor.ponder.brass_outlet.header", "Dynamically Buying Stress Units");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_1",
+                "The Brass Outlet buys exactly as many stress units as the network it is connected to needs.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_2",
+                "Only speed and direction can be set on the back of the outlet. The amount of stress units is chosen automatically.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_3",
+                "Like the Andesite Outlet, it only works while it is powered with redstone.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_4",
+                "It only buys the stress units the connected network needs.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_5",
+                "If more machines are connected, the outlet buys more stress units.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_6", "If fewer stress units are needed, the outlet buys less.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_7",
+                "The company is only billed for the stress units that were bought. They cost more than the ones from an Andesite Outlet. Engineers Goggles show the daily cost.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_8",
+                "If you need more information about outlets, ask a consultant.");
     }
 
     static void touch() {}

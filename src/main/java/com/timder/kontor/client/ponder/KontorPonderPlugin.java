@@ -36,5 +36,11 @@ public class KontorPonderPlugin implements PonderPlugin {
         HELPER.forComponents(KontorBlocks.PAYMENT_TERMINAL)
                 .addStoryBoard("payment_terminal/payments", PaymentTerminalScenes::payments)
                 .addStoryBoard("payment_terminal/signal_modes", PaymentTerminalScenes::signalModes);
+
+        HELPER.forComponents(KontorBlocks.ANDESITE_OUTLET)
+                .addStoryBoard("outlets/andesite_outlet", PowerOutletScenes::andesiteOutlet);
+
+        HELPER.forComponents(KontorBlocks.BRASS_OUTLET)
+                .addStoryBoard("outlets/brass_outlet", PowerOutletScenes::brassOutlet);
     }
 }
