@@ -41,7 +41,7 @@ base {
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 spotless {
-    ratchetFrom 'origin/main'
+    ratchetFrom 'origin/release'
     java {
         toggleOffOn()
         removeUnusedImports()
