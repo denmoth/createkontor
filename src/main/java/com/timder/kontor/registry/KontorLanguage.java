@@ -27,6 +27,9 @@ public class KontorLanguage {
         REGISTRATE.addRawLang(
                 "message.createkontor.shipping_exit.limit",
                 "§c⚠ Limit reached: Legal form allows at most %s §cbound shipping exits.");
+        REGISTRATE.addRawLang(
+                "message.createkontor.power_outlet.limit",
+                "§c⚠ Limit reached: Legal form allows at most %s §cbound power outlets.");
         REGISTRATE.addRawLang("message.createkontor.kontor_desk.limit", "§c⚠ This company already has a Kontor Desk.");
         REGISTRATE.addRawLang(
                 "message.createkontor.kontor_desk.request_accepting_failed", "§cAccepting request %s §cfailed: %s");
@@ -176,12 +179,9 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("message.createkontor.checkbook.signed", "Check signed: %s to %s.");
         REGISTRATE.addRawLang("message.createkontor.transfer_received", "%s §7sent you %s§7.");
 
-        REGISTRATE.addRawLang(CompanyBlockSupport.GOGGLE_COMPANY_BLOCK, "Company");
+        REGISTRATE.addRawLang(CompanyBlockSupport.GOGGLE_COMPANY_BLOCK, "Company:");
         REGISTRATE.addRawLang(CompanyBlockSupport.GOGGLE_COMPANY_BLOCK_UNBOUND, "Not bound to any company.");
-        REGISTRATE.addRawLang("goggle.createkontor.employee_desk.role", "Role: %s");
-        REGISTRATE.addRawLang("goggle.createkontor.employee_desk.seat_empty", "Seat: empty");
-        REGISTRATE.addRawLang("goggle.createkontor.employee_desk.employed", "Employed: %s");
-        REGISTRATE.addRawLang("goggle.createkontor.employee_desk.salary", "Daily salary: %s");
+        REGISTRATE.addRawLang("goggle.createkontor.employee_desk.salary", "Daily salary:");
         REGISTRATE.addRawLang("goggle.createkontor.employee_desk.vacant", "Not staffed.");
         REGISTRATE.addRawLang(
                 "goggle.createkontor.employee_desk.no_free_slot",
@@ -192,8 +192,10 @@ public class KontorLanguage {
         REGISTRATE.addRawLang(
                 "goggle.createkontor.employee_desk.not_affordable",
                 "Cannot hire: the company cannot afford the hiring bonus.");
-        REGISTRATE.addRawLang("goggle.createkontor.employee_desk.offer_salary", "Salary: %s per day");
-        REGISTRATE.addRawLang("goggle.createkontor.employee_desk.offer_bonus", "Hiring bonus: %s once");
+        REGISTRATE.addRawLang("goggle.createkontor.employee_desk.offer_salary", "Salary:");
+        REGISTRATE.addRawLang("goggle.createkontor.employee_desk.offer_salary.value", "%s per day");
+        REGISTRATE.addRawLang("goggle.createkontor.employee_desk.offer_bonus", "Hiring bonus:");
+        REGISTRATE.addRawLang("goggle.createkontor.employee_desk.offer_bonus.value", "%s once");
         REGISTRATE.addRawLang("goggle.createkontor.employee_desk.inactive", "Paused");
         REGISTRATE.addRawLang("goggle.createkontor.buyer_desk.postboxes", "Connected postboxes: %s");
         REGISTRATE.addRawLang("goggle.createkontor.buyer_desk.no_postbox", "No postbox connected");
@@ -202,6 +204,10 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("goggle.createkontor.buyer_desk.pending", "Packages waiting: %s");
         REGISTRATE.addRawLang("goggle.createkontor.logistics_manager_desk.status", "Logistics network: %s");
         REGISTRATE.addRawLang("goggle.createkontor.logistics_manager_desk.ordering", "Ordering: %s");
+
+        REGISTRATE.addRawLang("goggle.createkontor.power_outlet.daily_cost", "Current Cost:");
+        REGISTRATE.addRawLang("goggle.createkontor.power_outlet.daily_cost.value", "%s per day");
+        REGISTRATE.addRawLang("goggle.createkontor.power_outlet.inactive", "Inactive");
 
         REGISTRATE.addRawLang("createkontor.display_source.company_overview", "Company Overview");
         REGISTRATE.addRawLang("display.createkontor.company_overview.balance", "Balance: %s");
@@ -336,6 +342,7 @@ public class KontorLanguage {
                 "Max. Open Requests Per Product");
         REGISTRATE.addRawLang("ui.createkontor.lawyer_desk.legal_form.stats.order_book_size", "Order Book Size");
         REGISTRATE.addRawLang("ui.createkontor.lawyer_desk.legal_form.stats.max_shipping_exits", "Max. Shipping Exits");
+        REGISTRATE.addRawLang("ui.createkontor.lawyer_desk.legal_form.stats.max_power_outlets", "Max. Power Outlets");
         REGISTRATE.addRawLang("ui.createkontor.lawyer_desk.legal_form.application_fee", "Application Fee: %s");
         REGISTRATE.addRawLang("ui.createkontor.lawyer_desk.legal_form.upgrade_requirements", "Upgrade Requirements");
         REGISTRATE.addRawLang(
@@ -657,6 +664,9 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("ui.createkontor.checkbook.amount", "Amount in $");
         REGISTRATE.addRawLang("ui.createkontor.checkbook.amount_short", "Amount");
         REGISTRATE.addRawLang("ui.createkontor.checkbook.sign", "Sign & Transfer Money");
+
+        REGISTRATE.addRawLang("ui.createkontor.power_outlet.stress_units", "Stress Units");
+        REGISTRATE.addRawLang("ui.createkontor.power_outlet.rotation_speed", "Rotation Speed");
 
         REGISTRATE.addRawLang("enum.createkontor.liquidity.normal", "§2Normal Liquidity");
         REGISTRATE.addRawLang("enum.createkontor.liquidity.illiquidity", "§4Illiquidity");
@@ -1473,6 +1483,51 @@ public class KontorLanguage {
         REGISTRATE.addRawLang(
                 "createkontor.ponder.payment_terminal_signal_modes.text_3",
                 "Impulse: One pulse at the start and one after the configured length.");
+
+        REGISTRATE.addRawLang("createkontor.ponder.andesite_outlet.header", "Buying Stress Units");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.andesite_outlet.text_1",
+                "The Andesite Outlet allows companies to buy stress units. The company it is bound to pays for them.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.andesite_outlet.text_2",
+                "The amount of stress units is set on the sides of the outlet.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.andesite_outlet.text_3",
+                "Speed and direction can be set on the back of the outlet.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.andesite_outlet.text_4",
+                "It only provides stress units while it is powered with redstone.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.andesite_outlet.text_5",
+                "The company is billed for every provided stress unit, whether they are used or not. Googles show the daily cost.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.andesite_outlet.text_6",
+                "If you need more information about outlets, ask a consultant.");
+
+        REGISTRATE.addRawLang("createkontor.ponder.brass_outlet.header", "Dynamically Buying Stress Units");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_1",
+                "The Brass Outlet buys exactly as many stress units as the network it is connected to needs.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_2",
+                "Only speed and direction can be set on the back of the outlet. The amount of stress units is chosen automatically.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_3",
+                "Like the Andesite Outlet, it only works while it is powered with redstone.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_4",
+                "It only buys the stress units the connected network needs.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_5",
+                "If more machines are connected, the outlet buys more stress units.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_6", "If fewer stress units are needed, the outlet buys less.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_7",
+                "The company is only billed for the stress units that were bought. They cost more than the ones from an Andesite Outlet. Goggles show the daily cost.");
+        REGISTRATE.addRawLang(
+                "createkontor.ponder.brass_outlet.text_8",
+                "If you need more information about outlets, ask a consultant.");
     }
 
     static void touch() {}

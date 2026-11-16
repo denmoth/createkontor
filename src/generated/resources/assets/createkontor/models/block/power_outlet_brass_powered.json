@@ -1,0 +1,6 @@
+{
+  "parent": "createkontor:block/power_outlet_brass",
+  "textures": {
+    "0": "createkontor:block/power_outlet_brass_powered"
+  }
+}

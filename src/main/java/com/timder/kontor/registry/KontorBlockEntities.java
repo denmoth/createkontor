@@ -2,12 +2,12 @@ package com.timder.kontor.registry;
 
 import static com.timder.kontor.registry.KontorRegistries.REGISTRATE;
 
-import com.timder.kontor.game.block.KontorDeskBlockEntity;
-import com.timder.kontor.game.block.LogisticsManagerDeskBlockEntity;
-import com.timder.kontor.game.block.PaymentTerminalBlockEntity;
-import com.timder.kontor.game.block.ShippingExitBlockEntity;
+import com.timder.kontor.client.PowerOutletRenderer;
+import com.timder.kontor.game.block.*;
 import com.timder.kontor.game.block.buyer.BuyerDeskBlockEntity;
 import com.timder.kontor.game.block.employee.EmployeeDeskBlockEntity;
+import com.timder.kontor.game.block.power.AndesitePowerOutletBlockEntity;
+import com.timder.kontor.game.block.power.BrassPowerOutletBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
 public final class KontorBlockEntities {
@@ -20,6 +20,18 @@ public final class KontorBlockEntities {
     public static final BlockEntityEntry<PaymentTerminalBlockEntity> PAYMENT_TERMINAL = REGISTRATE
             .blockEntity("payment_terminal", PaymentTerminalBlockEntity::new)
             .validBlocks(KontorBlocks.PAYMENT_TERMINAL)
+            .register();
+
+    public static final BlockEntityEntry<AndesitePowerOutletBlockEntity> ANDESITE_POWER_OUTLET = REGISTRATE
+            .blockEntity("andesite_power_outlet", AndesitePowerOutletBlockEntity::new)
+            .validBlocks(KontorBlocks.ANDESITE_OUTLET)
+            .renderer(() -> PowerOutletRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<BrassPowerOutletBlockEntity> BRASS_POWER_OUTLET = REGISTRATE
+            .blockEntity("brass_power_outlet", BrassPowerOutletBlockEntity::new)
+            .validBlocks(KontorBlocks.BRASS_OUTLET)
+            .renderer(() -> PowerOutletRenderer::new)
             .register();
 
     public static final BlockEntityEntry<KontorDeskBlockEntity> KONTOR_DESK = REGISTRATE
