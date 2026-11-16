@@ -75,17 +75,17 @@ public class CompanyConfig {
         FOUNDER_LOAN_TERM_DAYS = builder.comment("Days over which the founder loan is repaid after the free days")
                 .defineInRange("founderLoanTermDays", 21, 1, Integer.MAX_VALUE);
         FOUNDER_LOAN_SPREAD = builder.comment(
-                        "Daily surcharge on the policy rate for the founder loan, as a fraction (e.g. 0.0010 is 0.10 %)")
+                        "Daily surcharge on the policy rate for the founder loan")
                 .defineInRange("founderLoanSpread", 0.0010, 0.0, Double.MAX_VALUE);
         OVERDRAFT_SPREAD = builder.comment(
-                        "Daily surcharge on the policy rate for a negative balance, as a fraction (e.g. 0.0050 is 0.50 %)")
+                        "Daily surcharge on the policy rate for an overdraft loan")
                 .defineInRange("overdraftSpread", 0.0050, 0.0, Double.MAX_VALUE);
         BUSINESS_LICENSE_FEE_IN_DOLLARS = builder.comment("Daily fee of the business license")
                 .defineInRange("businessLicenseFeeInDollars", 20, 0, Integer.MAX_VALUE);
-        INSOLVENCY_DAYS = builder.comment("Days in payment difficulties that end in insolvency. 0 = no insolvency.")
+        INSOLVENCY_DAYS = builder.comment("Days in payment difficulties before being eligible for insolvency")
                 .defineInRange("insolvencyDays", 5, 0, Integer.MAX_VALUE);
         BOOKING_RETENTION_DAYS = builder.comment("Days that individual bookings are kept")
-                .defineInRange("bookingRetentionDays", 30, 1, Integer.MAX_VALUE);
+                .defineInRange("bookingRetentionDays", 60, 1, Integer.MAX_VALUE);
         HISTORY_LENGTH_DAYS = builder.comment("Days that the daily history is kept per company")
                 .defineInRange("historyLengthDays", 360, 1, Integer.MAX_VALUE);
 
@@ -103,58 +103,58 @@ public class CompanyConfig {
         builder.pop();
 
         builder.comment(
-                        "Employees. The salaries are base salaries per day, the salary factor of the legal form is applied on top.")
+                        "Employees and Salaries")
                 .push("employees");
 
         HIRE_BONUS_SALARY_MULTIPLE = builder.comment(
-                        "One-time bonus a company pays when it hires an employee, as a multiple of the employee's daily salary (base salary times the salary factor of the legal form). 0 = no bonus")
+                        "Multiple of the base salary of an employee that is payed out as a hiring bonus.")
                 .defineInRange("hireBonusSalaryMultiple", 3.0, 0.0, 100.0);
         EMPLOYEE_ORPHAN_DAYS = builder.comment(
-                        "An employee whose desk has not reported for this many days loses the contract (e.g. the desk sits in an unloaded chunk)")
+                        "An employee whose desk has not reported for this many days gets dismissed")
                 .defineInRange("orphanDays", 3, 1, Integer.MAX_VALUE);
         CONTRACT_CHECK_MIN_ACTIVE_TICKS = builder.comment(
-                        "Contracts are only checked at the end of a day on which the company was active for at least this many ticks, so its desks had time to report")
+                        "Minimum ticks the company has to be active on a day for a dismissal check")
                 .defineInRange("contractCheckMinActiveTicks", 200, 0, 24_000);
-        LAWYER_SALARY_IN_DOLLARS = builder.comment("Base salary of a lawyer per day. Fixed when the lawyer is hired")
+        LAWYER_SALARY_IN_DOLLARS = builder.comment("Base salary of a lawyer per day")
                 .defineInRange("lawyerSalaryInDollars", 100, 0, Integer.MAX_VALUE);
         CALCULATOR_SALARY_IN_DOLLARS = builder.comment(
-                        "Base salary of a calculator per day. Fixed when the calculator is hired")
+                        "Base salary of a calculator per day")
                 .defineInRange("calculatorSalaryInDollars", 80, 0, Integer.MAX_VALUE);
         MARKET_ANALYST_SALARY_IN_DOLLARS = builder.comment(
-                        "Base salary of a market analyst per day. Fixed when the market analyst is hired")
+                        "Base salary of a market analyst per day")
                 .defineInRange("marketAnalystSalaryInDollars", 90, 0, Integer.MAX_VALUE);
-        BUYER_SALARY_IN_DOLLARS = builder.comment("Base salary of a buyer per day. Fixed when the buyer is hired")
+        BUYER_SALARY_IN_DOLLARS = builder.comment("Base salary of a buyer per day")
                 .defineInRange("buyerSalaryInDollars", 80, 0, Integer.MAX_VALUE);
         CONSULTANT_SALARY_IN_DOLLARS = builder.comment(
-                        "Base salary of a consultant per day. Fixed when the consultant is hired")
+                        "Base salary of a consultant per day")
                 .defineInRange("consultantSalaryInDollars", 40, 0, Integer.MAX_VALUE);
         LOGISTICS_MANAGER_SALARY_IN_DOLLARS = builder.comment(
-                        "Base salary of a logistics manager per day. Fixed when the logistics manager is hired")
+                        "Base salary of a logistics manager per day")
                 .defineInRange("logisticsManagerSalaryInDollars", 90, 0, Integer.MAX_VALUE);
         FINANCES_MANAGER_SALARY_IN_DOLLARS = builder.comment(
-                        "Base salary of a finances manager per day. Fixed when the logistics manager is hired")
+                        "Base salary of a finances manager per day")
                 .defineInRange("financesManagerSalaryInDollars", 100, 0, Integer.MAX_VALUE);
         PROPERTY_MANAGER_SALARY_IN_DOLLARS = builder.comment(
-                        "Base salary of a property manager per day. Fixed when the logistics manager is hired")
+                        "Base salary of a property manager per day")
                 .defineInRange("propertyManagerSalaryInDollars", 80, 0, Integer.MAX_VALUE);
 
         builder.pop();
 
         builder.comment(
-                        "Bank loans. The offers themselves (term, free days, term surcharge) are data pack files in kontor/bank_loan_offers")
+                        "Bank loans")
                 .push("bankLoans");
 
         BANK_LOAN_GRACE_DAY_SURCHARGE = builder.comment(
-                        "Daily surcharge on the interest rate for every free day of an offer, as a fraction (e.g. 0.0001 is 0.01 %)")
+                        "Daily surcharge on the interest rate for every free day of an offer")
                 .defineInRange("graceDaySurcharge", 0.0001, 0.0, Double.MAX_VALUE);
         BANK_LOAN_RISK_SURCHARGE_AT_ONE_STAR = builder.comment(
-                        "Daily surcharge on the interest rate for a company with one star, as a fraction (e.g. 0.0040 is 0.40 %). Must not be below the surcharge at five stars. In between the surcharge falls in a straight line")
+                        "Daily surcharge on the interest rate for a company with one star")
                 .defineInRange("riskSurchargeAtOneStar", 0.0040, 0.0, Double.MAX_VALUE);
         BANK_LOAN_RISK_SURCHARGE_AT_FIVE_STARS = builder.comment(
-                        "Daily surcharge on the interest rate for a company with five stars, as a fraction (e.g. 0.0010 is 0.10 %)")
+                        "Daily surcharge on the interest rate for a company with five stars")
                 .defineInRange("riskSurchargeAtFiveStars", 0.0010, 0.0, Double.MAX_VALUE);
         BANK_LOAN_MAX_LOANS = builder.comment(
-                        "How many bank loans a company can have at the same time. The founder loan does not count")
+                        "How many bank loans a company can have at the same time")
                 .defineInRange("maxLoans", 5, 1, Integer.MAX_VALUE);
         BANK_LOAN_CREDIT_LIMIT_REVENUE_MULTIPLE = builder.comment(
                         "The credit limit is at most this many times the average daily revenue (and at most the bank loan limit of the legal form)")
@@ -163,43 +163,43 @@ public class CompanyConfig {
                         "How many settled days the average daily revenue for the credit limit covers")
                 .defineInRange("creditLimitRevenueDays", 7, 1, Integer.MAX_VALUE);
         BANK_LOAN_MINIMUM_AMOUNT_SHARE = builder.comment(
-                        "The smallest bank loan is this share of the bank loan limit of the legal form (0.05 is 5 %)")
+                        "The smallest bank loan is this share of the bank loan limit of the legal form")
                 .defineInRange("minimumAmountShare", 0.01, 0.0, 1.0);
 
         builder.pop();
 
         builder.comment("Purchasing").push("purchasing");
         PURCHASE_MARKUP = builder.comment(
-                        "Factor times market prices a company pays when it buys goods, as a fraction (1.10 = 110 % the market price). Raise it to make buying products and reselling them to customers less attractive")
+                        "Factor times market prices a company pays when it buys goods")
                 .defineInRange("purchaseMarkup", 1.6, 0.0, 10.0);
         AUTO_PURCHASE_MARKUP = builder.comment(
-                        "Factor times market prices a company pays when it buys goods automatically, as a fraction (1.10 = 110 % the market price). Raise it to make buying products and reselling them to customers less attractive")
+                        "Factor times market prices a company pays when it buys goods automatically")
                 .defineInRange("autoPurchaseMarkup", 1.9, 0.0, 10.0);
 
         builder.pop();
 
         builder.comment("Logistics network").push("logistics");
         STORAGE_FEE_PER_ITEM_DAY_IN_DOLLARS = builder.comment(
-                        "Dollars a company pays per day for each item stored in its logistics network (0.002 = 0.2 cents). The stock is sampled once per trading tick and billed at the end of the day, and when the connection ends")
+                        "Dollars a company pays per day for each item stored in its logistics network")
                 .defineInRange("storageFeePerItemDayInDollars", 0.025, 0.0, 1_000.0);
 
         builder.pop();
 
         builder.comment("Stress units bought from outlets").push("power");
         ANDESITE_OUTLET_MAX_SU = builder.comment(
-                        "Most stress units a single andesite outlet can provide. Applies to every andesite outlet, not to the company as a whole")
+                        "Most stress units a single andesite outlet can provide")
                 .defineInRange("andesiteOutletMaxSu", 16384, 1, 1_000_000);
         BRASS_OUTLET_MAX_SU = builder.comment(
-                        "Most stress units a single brass outlet can buy, even if the connected network needs more. If it is below the andesite limit, the andesite limit is used")
+                        "Most stress units a single brass outlet can buy, even if the connected network needs more")
                 .defineInRange("brassOutletMaxSu", 65536, 1, 1_000_000);
         OUTLET_MAX_RPM = builder.comment(
-                        "Highest speed in RPM (in either direction) that can be set on an outlet. Create's default maximum is 256")
+                        "Highest speed in RPM that can be set on an outlet")
                 .defineInRange("outletMaxRpm", 256, 1, 256);
         SU_PRICE_PER_SU_DAY_IN_DOLLARS = builder.comment(
-                        "Dollars a company pays for one stress unit provided by an andesite outlet for one day. The unbilled stress units are collected and billed at the next settled day")
+                        "Dollars a company pays for one stress unit provided by an andesite outlet for one day")
                 .defineInRange("suPricePerSuDayInDollars", 0.20, 0.0, 1_000.0);
         BRASS_OUTLET_PRICE_FACTOR = builder.comment(
-                        "Factor on the stress unit price for brass outlets (1.5 = 50 % more expensive than andesite outlets). At least 1")
+                        "Factor on the stress unit price for brass outlets")
                 .defineInRange("brassOutletPriceFactor", 1.15, 1.0, 100.0);
 
         builder.pop();
@@ -207,10 +207,10 @@ public class CompanyConfig {
         builder.comment("Payment terminal").push("paymentTerminal");
 
         PAYMENT_TERMINAL_MIN_SIGNAL_SECONDS = builder.comment(
-                        "Shortest redstone signal an operator can set for a payment terminal, in seconds (real time, 20 ticks each)")
+                        "Shortest redstone signal an operator can set for a payment terminal, in seconds")
                 .defineInRange("minSignalSeconds", 1, 1, 3_600);
         PAYMENT_TERMINAL_MAX_SIGNAL_SECONDS = builder.comment(
-                        "Longest redstone signal an operator can set for a payment terminal, in seconds (real time, 20 ticks each). If it is below the minimum, the minimum is used")
+                        "Longest redstone signal an operator can set for a payment terminal, in seconds")
                 .defineInRange("maxSignalSeconds", 300, 1, 3_600);
         PAYMENT_TERMINAL_MAX_NAME_LENGTH = builder.comment("Longest name an operator can give a payment terminal")
                 .defineInRange("maxNameLength", 100, 1, 256);
