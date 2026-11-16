@@ -116,8 +116,6 @@ Most of the data that Create: Kontor uses to simulate the economy is configurabl
 
 Be careful when changing datapacks in an existing world. **Always make backups** before changing anything. 
 
-See the wiki for more detailed info on how to create custom datapacks for Create: Kontor.
-
 <br><br>
 
 ![FAQ](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20FAQ%20Render.png?raw=true)
@@ -156,7 +154,7 @@ Yes, Create: Kontor has full multiplayer support. But depending on the size and 
 
 <details>
 <summary>Can I use Create: Kontor in modpacks?</summary>
-Yes, you can! See the wiki on how to configure Create: Kontor and add support for other mods.
+Yes, you can!
 </details>
 
 <details>
