@@ -5,7 +5,11 @@
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0"><img alt="SA" height="24" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"></a>
 </p>
 
-![Create: Kontor](https://github.com/timasshoff/createkontor/blob/main/docs/Title%20Render.png?raw=true)
+![Create: Kontor](https://github.com/timasshoff/createkontor/blob/release        ConsultantWiki.register(
+                "power_outlets",
+                WikiCategory.BLOCKS,
+                Component.translatable("wiki.createkontor.page.power_outlets.title"),
+                PowerOutletsWikiPage::build);/docs/Title%20Render.png?raw=true)
 
 <p align="center">
  <a href="https://github.com/timasshoff/createkontor/"><img alt="github" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg"></a>
@@ -22,7 +26,7 @@
 
 <br><br>
 
-![Features](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20Features%20Render.png?raw=true)
+![Features](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20Features%20Render.png?raw=true)
 
 ### > 🖋️ | Found and manage a company in a fully simulated economy
 Create: Kontor simulates a full economy including market, prices, demand, economic cycles and policy rates.
@@ -49,7 +53,7 @@ Fully customizable through data packs and configs.
 
 <br><br>
 
-![How it works](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20How%20It%20Works%20Render.png?raw=true)
+![How it works](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20How%20It%20Works%20Render.png?raw=true)
 
 Using Create: Kontor you can found a company to **sell your items on a simulated market**. You will need to license your products to receive requests for your licensed products. Accept a request and you will need to produce the requested items. The price you set determines how many requests you will get. By hiring **employees**, you will get access to more features and information about your business!
 
@@ -59,7 +63,7 @@ See **Getting started** for more info. Or hire a **consultant** in-game and ask 
 
 <br><br>
 
-![Getting Started](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20Getting%20Started%20Render.png?raw=true)
+![Getting Started](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20Getting%20Started%20Render.png?raw=true)
 
 ### > 1️⃣ | Found a company
 Craft a **Kontor Desk** and right-click it. Enter a name and decide whether you want to take the founder's loan. After founding, you can right-click the Kontor Desk to access the management UI.
@@ -83,7 +87,7 @@ Hire a **consultant** for more info.
 
 <br><br>
 
-![Requirements and Compatibility](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20Requirements%20Render.png?raw=true)
+![Requirements and Compatibility](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20Requirements%20Render.png?raw=true)
 
 ### > ‼️ | Requirements and Dependencies
 - Create
@@ -105,7 +109,7 @@ If you find an incompatibility with another mod, please let me know and create a
 
 <br><br>
 
-![Configuration](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20Configuration%20Render.png?raw=true)
+![Configuration](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20Configuration%20Render.png?raw=true)
 
 ### > ⚙️ | Config Files
 Most constant values are configurable through the config files. Note that changes are only applied after restarting or leaving / rejoining the world. /reload is not enough. Be careful when changing the default settings and **always make backups**!
@@ -127,7 +131,7 @@ See the wiki for more detailed info on how to create custom datapacks for Create
 
 <br><br>
 
-![FAQ](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20FAQ%20Render.png?raw=true)
+![FAQ](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20FAQ%20Render.png?raw=true)
 
 <details>
 <summary>Why is this mod a Create Addon?</summary>
@@ -190,7 +194,7 @@ All AI-generated code has been marked with a comment saying that the code is AI-
 
 <br><br>
 
-![Links, Support and Credits](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20Links%20Credits%20Render.png?raw=true)
+![Links, Support and Credits](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20Links%20Credits%20Render.png?raw=true)
 
 If you find a bug or have a suggestion, please create a GitHub Issue <a href="https://github.com/timasshoff/createkontor/issues">here</a>.
 
