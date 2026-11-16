@@ -42,30 +42,23 @@ public class PropertyConfig {
     static {
         ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
-        builder.comment(
-                        "How the biome frequencies of a dimension are measured.")
+        builder.comment("How the biome frequencies of a dimension are measured.")
                 .push("measurement");
 
-        MEASUREMENT_CENTER_X = builder.comment(
-                        "X coordinate of the middle of the measured area, in every dimension")
+        MEASUREMENT_CENTER_X = builder.comment("X coordinate of the middle of the measured area, in every dimension")
                 .defineInRange("centerX", 0, -29_999_984, 29_999_984);
-        MEASUREMENT_CENTER_Z = builder.comment(
-                        "Z coordinate of the middle of the measured area, in every dimension")
+        MEASUREMENT_CENTER_Z = builder.comment("Z coordinate of the middle of the measured area, in every dimension")
                 .defineInRange("centerZ", 0, -29_999_984, 29_999_984);
-        MEASUREMENT_RADIUS_BLOCKS = builder.comment(
-                        "How far the measured area reaches from its middle")
+        MEASUREMENT_RADIUS_BLOCKS = builder.comment("How far the measured area reaches from its middle")
                 .defineInRange("radiusBlocks", 16_384, 0, 1_000_000);
-        MEASUREMENT_STEP_BLOCKS = builder.comment(
-                        "Distance between two sample points")
-                .defineInRange("stepBlocks", 128, 1, 100_000);
+        MEASUREMENT_STEP_BLOCKS =
+                builder.comment("Distance between two sample points").defineInRange("stepBlocks", 128, 1, 100_000);
         MEASUREMENT_SAMPLES_PER_TICK = builder.comment(
                         "How many points are sampled per server tick while a measurement runs")
                 .defineInRange("samplesPerTick", 64, 1, 100_000);
-        MEASUREMENT_MAX_MILLIS_PER_TICK = builder.comment(
-                        "Max time spent on sampling per server tick in ms.")
+        MEASUREMENT_MAX_MILLIS_PER_TICK = builder.comment("Max time spent on sampling per server tick in ms.")
                 .defineInRange("maxMillisPerTick", 40, 1, 1_000);
-        MEASUREMENT_CEILING_SAMPLE_Y = builder.comment(
-                        "Height at which dimensions with a ceiling are sampled")
+        MEASUREMENT_CEILING_SAMPLE_Y = builder.comment("Height at which dimensions with a ceiling are sampled")
                 .defineInRange("ceilingSampleY", 64, -64, 320);
         MEASUREMENT_AUTO_DIMENSIONS = builder.comment(
                         "Dimensions that are measured automatically when the server has started")
@@ -77,13 +70,10 @@ public class PropertyConfig {
 
         builder.pop();
 
-        builder.comment("Land pricing")
-                .push("pricing");
-        PRICING_RARITY_EXPONENT = builder.comment(
-                        "Rarity factor. 1 = prices follow rarity linearly")
+        builder.comment("Land pricing").push("pricing");
+        PRICING_RARITY_EXPONENT = builder.comment("Rarity factor. 1 = prices follow rarity linearly")
                 .defineInRange("rarityExponent", 0.4, 0.0, 5.0);
-        PRICING_MIN_FACTOR = builder.comment("Min Price Factor")
-                .defineInRange("minFactor", 0.2, 0.01, 1.0);
+        PRICING_MIN_FACTOR = builder.comment("Min Price Factor").defineInRange("minFactor", 0.2, 0.01, 1.0);
         PRICING_MAX_FACTOR = builder.comment("Max Price Factor. Also applied for biomes that were never hit")
                 .defineInRange("maxFactor", 50.0, 1.0, 1_000.0);
         defineDimension(builder, "overworld", "minecraft:overworld", "minecraft:plains", 8000);
@@ -94,13 +84,11 @@ public class PropertyConfig {
         builder.comment("Owning and renting land").push("ownership");
         DAILY_RENT_RATE = builder.comment("Daily rent of a rented chunk as a share of its current price")
                 .defineInRange("dailyRentRate", 0.02, 0.0, 1.0);
-        RESALE_SHARE = builder.comment(
-                        "Share of the current price a company gets when it sells a chunk")
+        RESALE_SHARE = builder.comment("Share of the current price a company gets when it sells a chunk")
                 .defineInRange("resaleShare", 0.6, 0.0, 1.0);
         MANAGER_RADIUS = builder.comment("The radius in chunks that a property manager can manage")
                 .defineInRange("managerRadius", 8, 1, 32);
-        MAX_LOADED_CHUNKS = builder.comment(
-                        "How many of its held chunks a company can keep loaded")
+        MAX_LOADED_CHUNKS = builder.comment("How many of its held chunks a company can keep loaded")
                 .defineInRange("maxLoadedChunks", 32, 0, 1_000);
         builder.pop();
 
@@ -109,8 +97,7 @@ public class PropertyConfig {
 
     private static void defineDimension(
             ModConfigSpec.Builder builder, String name, String dimension, String biome, int priceInDollars) {
-        builder.comment("Reference biome and price of " + dimension)
-                .push(name);
+        builder.comment("Reference biome and price of " + dimension).push(name);
         ModConfigSpec.ConfigValue<String> referenceBiome =
                 builder.define("referenceBiome", biome, value -> value instanceof String text && !text.isBlank());
         ModConfigSpec.IntValue referencePrice = builder.comment("Price of a chunk of the reference biome")

@@ -101,15 +101,11 @@ public class EconomyConfig {
                 builder.comment("Long-term demand growth").defineInRange("trendPerDay", 0.0015, 0, Double.MAX_VALUE);
         builder.pop();
 
-        builder.comment("Policy rate")
-                .push("policyRate");
-        POLICY_BASE_RATE = builder.comment(
-                        "Start rate and rate of a normal economy")
+        builder.comment("Policy rate").push("policyRate");
+        POLICY_BASE_RATE = builder.comment("Start rate and rate of a normal economy")
                 .defineInRange("baseRate", 0.0020, 1.0E-6, 1.0);
-        POLICY_MIN_RATE =
-                builder.comment("Lowest possible policy rate").defineInRange("minRate", 0.0005, 1.0E-6, 1.0);
-        POLICY_MAX_RATE =
-                builder.comment("Highest possible policy rate").defineInRange("maxRate", 0.0050, 1.0E-6, 1.0);
+        POLICY_MIN_RATE = builder.comment("Lowest possible policy rate").defineInRange("minRate", 0.0005, 1.0E-6, 1.0);
+        POLICY_MAX_RATE = builder.comment("Highest possible policy rate").defineInRange("maxRate", 0.0050, 1.0E-6, 1.0);
         POLICY_DECISION_INTERVAL_DAYS = builder.comment("A decision is made every this many days")
                 .defineInRange("decisionIntervalDays", 5, 1, Integer.MAX_VALUE);
         POLICY_TARGET_SENSITIVITY = builder.comment("How strongly the target rate reacts to the cycle index")
@@ -131,8 +127,7 @@ public class EconomyConfig {
                 .defineInRange("onTimeUrgencyFactor", 0.5, 0.0, Double.MAX_VALUE);
         REPUTATION_LATE_LOSS = builder.comment("Base reputation loss for a late (grace period) order")
                 .defineInRange("lateLoss", 1.0, 0.0, Double.MAX_VALUE);
-        REPUTATION_FAILURE_LOSS = builder.comment(
-                        "Base reputation loss for au unfulfilled order")
+        REPUTATION_FAILURE_LOSS = builder.comment("Base reputation loss for au unfulfilled order")
                 .defineInRange("failureLoss", 4.0, 0.0, Double.MAX_VALUE);
         REPUTATION_FOUNDER_PROTECTION_FACTOR = builder.comment("Founders protection of reputation")
                 .defineInRange("founderProtectionFactor", 0.5, 0.0, 1.0);
@@ -140,10 +135,8 @@ public class EconomyConfig {
                 .defineInRange("driftPerDay", 0.5, 0.0, 100.0);
         builder.pop();
 
-        builder.comment("Requests")
-                .push("request");
-        REQUEST_QUANTITY_STEPS = builder.comment(
-                        "Quantity factors as 'factor:weight'")
+        builder.comment("Requests").push("request");
+        REQUEST_QUANTITY_STEPS = builder.comment("Quantity factors as 'factor:weight'")
                 .defineList(
                         "quantitySteps",
                         List.of("1:15", "2:20", "3:30", "4:20", "6:15", "8:15", "12:10", "16:10", "32:8"),
@@ -154,16 +147,16 @@ public class EconomyConfig {
         REQUEST_DEADLINE_URGENCY_FACTOR = builder.comment(
                         "An urgent request has 1 - X * urgencyfactor of the normal deadline")
                 .defineInRange("deadlineUrgencyFactor", 0.65, 0.0, 1.0);
-        REQUEST_PRICE_URGENCY_FACTOR = builder.comment("An urgent request pays 1 + X * urgencyfactor of the normal price")
+        REQUEST_PRICE_URGENCY_FACTOR = builder.comment(
+                        "An urgent request pays 1 + X * urgencyfactor of the normal price")
                 .defineInRange("priceUrgencyFactor", 0.4, 0.0, Double.MAX_VALUE);
         REQUEST_OFFER_DURATION_URGENCY_FACTOR = builder.comment(
                         "An urgent request stays 1 + X * urgencyfactor of the normal time on the board")
                 .defineInRange("offerDurationUrgencyFactor", 0.5, 0.0, 0.99);
-        REQUEST_DEADLINE_BASE_TICKS = builder.comment(
-                        "Base of the deadline in ticks")
+        REQUEST_DEADLINE_BASE_TICKS = builder.comment("Base of the deadline in ticks")
                 .defineInRange("deadlineBaseTicks", 3000, 1L, Long.MAX_VALUE);
-        REQUEST_DEADLINE_FLOOR_TICKS = builder.comment("Minimum deadline")
-                .defineInRange("deadlineFloorTicks", 2400, 1L, Long.MAX_VALUE);
+        REQUEST_DEADLINE_FLOOR_TICKS =
+                builder.comment("Minimum deadline").defineInRange("deadlineFloorTicks", 2400, 1L, Long.MAX_VALUE);
         REQUEST_OFFER_DURATION_BASE_TICKS = builder.comment("How many ticks a normal request stays on the board")
                 .defineInRange("offerDurationBaseTicks", 6000, 100L, Long.MAX_VALUE);
         REQUEST_GRACE_PERIOD_PORTION = builder.comment("Portion of the deadline that is granted as grace period")
@@ -172,8 +165,7 @@ public class EconomyConfig {
                 .defineInRange("quantityDiscountFloor", 0.95, 0.01, 1.0);
         REQUEST_QUANTITY_DISCOUNT_PER_STEP = builder.comment("Discount per quantity factor above 1")
                 .defineInRange("quantityDiscountPerStep", 0.005, 0.0, 1.0);
-        REQUEST_WALK_IN_PRICE_THRESHOLD = builder.comment(
-                        "Walk-In Price Threshold")
+        REQUEST_WALK_IN_PRICE_THRESHOLD = builder.comment("Walk-In Price Threshold")
                 .defineInRange("walkInPriceThreshold", 1.2, 1.0001, Double.MAX_VALUE);
         REQUEST_WALK_IN_REQUESTS_PER_DAY = builder.comment(
                         "Minimum number of requests per day guaranteed while the walk-in price threshold applies")
@@ -205,9 +197,8 @@ public class EconomyConfig {
                 .defineInRange("deviationDecay", 0.95, 0.0, 0.999999);
         DEVIATION_STRENGTH = builder.comment("How strongly a purchase moves the deviation")
                 .defineInRange("deviationStrength", 0.063, 0.0, Double.MAX_VALUE);
-        DEVIATION_BOUND = builder.comment(
-                        "Max short-term deviation")
-                .defineInRange("deviationBound", 0.4, 1.0E-6, 0.999999);
+        DEVIATION_BOUND =
+                builder.comment("Max short-term deviation").defineInRange("deviationBound", 0.4, 1.0E-6, 0.999999);
         MAX_PRICE_FACTOR = builder.comment("Max daily price compared to reference cost")
                 .defineInRange("maxPriceFactor", 2.5, 1.0001, Double.MAX_VALUE);
         MIN_COMPETITORS = builder.comment("Min simulated competitors of a market")
@@ -220,14 +211,12 @@ public class EconomyConfig {
         COST_PASS_THROUGH_DOWN = builder.comment(
                         "How much of a fall of a product's reference cost is passed on to its price level")
                 .defineInRange("costPassThroughDown", 0.3, 0.0, 1.0);
-        TRUST_THRESHOLD = builder.comment(
-                        "Price ratio below which customers start to distrust an offer as too cheap")
+        TRUST_THRESHOLD = builder.comment("Price ratio below which customers start to distrust an offer as too cheap")
                 .defineInRange("trustThreshold", 0.85, 0.0, 0.999999);
         TRUST_WIDTH = builder.comment(
                         "How quickly reputations falls when below the trust threshold (smaller = quicker)")
                 .defineInRange("trustWidth", 0.2, 1.0E-6, Double.MAX_VALUE);
-        MAX_CUSTOMER_SHARE = builder.comment(
-                        "Largest share of a market's demand customers give to one single supplier")
+        MAX_CUSTOMER_SHARE = builder.comment("Largest share of a market's demand customers give to one single supplier")
                 .defineInRange("maxCustomerShare", 0.7, 1.0E-6, 1.0);
         builder.pop();
 

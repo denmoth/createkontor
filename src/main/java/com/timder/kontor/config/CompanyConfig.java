@@ -74,11 +74,9 @@ public class CompanyConfig {
                 .defineInRange("founderLoanFreeDays", 7, 0, Integer.MAX_VALUE);
         FOUNDER_LOAN_TERM_DAYS = builder.comment("Days over which the founder loan is repaid after the free days")
                 .defineInRange("founderLoanTermDays", 21, 1, Integer.MAX_VALUE);
-        FOUNDER_LOAN_SPREAD = builder.comment(
-                        "Daily surcharge on the policy rate for the founder loan")
+        FOUNDER_LOAN_SPREAD = builder.comment("Daily surcharge on the policy rate for the founder loan")
                 .defineInRange("founderLoanSpread", 0.0010, 0.0, Double.MAX_VALUE);
-        OVERDRAFT_SPREAD = builder.comment(
-                        "Daily surcharge on the policy rate for an overdraft loan")
+        OVERDRAFT_SPREAD = builder.comment("Daily surcharge on the policy rate for an overdraft loan")
                 .defineInRange("overdraftSpread", 0.0050, 0.0, Double.MAX_VALUE);
         BUSINESS_LICENSE_FEE_IN_DOLLARS = builder.comment("Daily fee of the business license")
                 .defineInRange("businessLicenseFeeInDollars", 20, 0, Integer.MAX_VALUE);
@@ -102,9 +100,7 @@ public class CompanyConfig {
 
         builder.pop();
 
-        builder.comment(
-                        "Employees and Salaries")
-                .push("employees");
+        builder.comment("Employees and Salaries").push("employees");
 
         HIRE_BONUS_SALARY_MULTIPLE = builder.comment(
                         "Multiple of the base salary of an employee that is payed out as a hiring bonus.")
@@ -117,32 +113,24 @@ public class CompanyConfig {
                 .defineInRange("contractCheckMinActiveTicks", 200, 0, 24_000);
         LAWYER_SALARY_IN_DOLLARS = builder.comment("Base salary of a lawyer per day")
                 .defineInRange("lawyerSalaryInDollars", 100, 0, Integer.MAX_VALUE);
-        CALCULATOR_SALARY_IN_DOLLARS = builder.comment(
-                        "Base salary of a calculator per day")
+        CALCULATOR_SALARY_IN_DOLLARS = builder.comment("Base salary of a calculator per day")
                 .defineInRange("calculatorSalaryInDollars", 80, 0, Integer.MAX_VALUE);
-        MARKET_ANALYST_SALARY_IN_DOLLARS = builder.comment(
-                        "Base salary of a market analyst per day")
+        MARKET_ANALYST_SALARY_IN_DOLLARS = builder.comment("Base salary of a market analyst per day")
                 .defineInRange("marketAnalystSalaryInDollars", 90, 0, Integer.MAX_VALUE);
         BUYER_SALARY_IN_DOLLARS = builder.comment("Base salary of a buyer per day")
                 .defineInRange("buyerSalaryInDollars", 80, 0, Integer.MAX_VALUE);
-        CONSULTANT_SALARY_IN_DOLLARS = builder.comment(
-                        "Base salary of a consultant per day")
+        CONSULTANT_SALARY_IN_DOLLARS = builder.comment("Base salary of a consultant per day")
                 .defineInRange("consultantSalaryInDollars", 40, 0, Integer.MAX_VALUE);
-        LOGISTICS_MANAGER_SALARY_IN_DOLLARS = builder.comment(
-                        "Base salary of a logistics manager per day")
+        LOGISTICS_MANAGER_SALARY_IN_DOLLARS = builder.comment("Base salary of a logistics manager per day")
                 .defineInRange("logisticsManagerSalaryInDollars", 90, 0, Integer.MAX_VALUE);
-        FINANCES_MANAGER_SALARY_IN_DOLLARS = builder.comment(
-                        "Base salary of a finances manager per day")
+        FINANCES_MANAGER_SALARY_IN_DOLLARS = builder.comment("Base salary of a finances manager per day")
                 .defineInRange("financesManagerSalaryInDollars", 100, 0, Integer.MAX_VALUE);
-        PROPERTY_MANAGER_SALARY_IN_DOLLARS = builder.comment(
-                        "Base salary of a property manager per day")
+        PROPERTY_MANAGER_SALARY_IN_DOLLARS = builder.comment("Base salary of a property manager per day")
                 .defineInRange("propertyManagerSalaryInDollars", 80, 0, Integer.MAX_VALUE);
 
         builder.pop();
 
-        builder.comment(
-                        "Bank loans")
-                .push("bankLoans");
+        builder.comment("Bank loans").push("bankLoans");
 
         BANK_LOAN_GRACE_DAY_SURCHARGE = builder.comment(
                         "Daily surcharge on the interest rate for every free day of an offer")
@@ -153,8 +141,7 @@ public class CompanyConfig {
         BANK_LOAN_RISK_SURCHARGE_AT_FIVE_STARS = builder.comment(
                         "Daily surcharge on the interest rate for a company with five stars")
                 .defineInRange("riskSurchargeAtFiveStars", 0.0010, 0.0, Double.MAX_VALUE);
-        BANK_LOAN_MAX_LOANS = builder.comment(
-                        "How many bank loans a company can have at the same time")
+        BANK_LOAN_MAX_LOANS = builder.comment("How many bank loans a company can have at the same time")
                 .defineInRange("maxLoans", 5, 1, Integer.MAX_VALUE);
         BANK_LOAN_CREDIT_LIMIT_REVENUE_MULTIPLE = builder.comment(
                         "The credit limit is at most this many times the average daily revenue (and at most the bank loan limit of the legal form)")
@@ -169,8 +156,7 @@ public class CompanyConfig {
         builder.pop();
 
         builder.comment("Purchasing").push("purchasing");
-        PURCHASE_MARKUP = builder.comment(
-                        "Factor times market prices a company pays when it buys goods")
+        PURCHASE_MARKUP = builder.comment("Factor times market prices a company pays when it buys goods")
                 .defineInRange("purchaseMarkup", 1.6, 0.0, 10.0);
         AUTO_PURCHASE_MARKUP = builder.comment(
                         "Factor times market prices a company pays when it buys goods automatically")
@@ -186,20 +172,17 @@ public class CompanyConfig {
         builder.pop();
 
         builder.comment("Stress units bought from outlets").push("power");
-        ANDESITE_OUTLET_MAX_SU = builder.comment(
-                        "Most stress units a single andesite outlet can provide")
+        ANDESITE_OUTLET_MAX_SU = builder.comment("Most stress units a single andesite outlet can provide")
                 .defineInRange("andesiteOutletMaxSu", 16384, 1, 1_000_000);
         BRASS_OUTLET_MAX_SU = builder.comment(
                         "Most stress units a single brass outlet can buy, even if the connected network needs more")
                 .defineInRange("brassOutletMaxSu", 65536, 1, 1_000_000);
-        OUTLET_MAX_RPM = builder.comment(
-                        "Highest speed in RPM that can be set on an outlet")
+        OUTLET_MAX_RPM = builder.comment("Highest speed in RPM that can be set on an outlet")
                 .defineInRange("outletMaxRpm", 256, 1, 256);
         SU_PRICE_PER_SU_DAY_IN_DOLLARS = builder.comment(
                         "Dollars a company pays for one stress unit provided by an andesite outlet for one day")
                 .defineInRange("suPricePerSuDayInDollars", 0.20, 0.0, 1_000.0);
-        BRASS_OUTLET_PRICE_FACTOR = builder.comment(
-                        "Factor on the stress unit price for brass outlets")
+        BRASS_OUTLET_PRICE_FACTOR = builder.comment("Factor on the stress unit price for brass outlets")
                 .defineInRange("brassOutletPriceFactor", 1.15, 1.0, 100.0);
 
         builder.pop();
