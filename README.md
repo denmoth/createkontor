@@ -5,14 +5,12 @@
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0"><img alt="SA" height="24" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"></a>
 </p>
 
-![Create: Kontor](https://github.com/timasshoff/createkontor/blob/main/docs/Title%20Render.png?raw=true)
+![Create: Kontor](https://github.com/timasshoff/createkontor/blob/release/docs/Title%20Render.png?raw=true)
 
 <p align="center">
  <a href="https://github.com/timasshoff/createkontor/"><img alt="github" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg"></a>
  <a href=""><img alt="curseforge" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/curseforge_vector.svg"></a>
  <a href="https://modrinth.com/project/create-kontor"><img alt="modrinth" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg"></a>
- <a href=""><img alt="discord-plural" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-plural_vector.svg"></a>
- <a href=""><img alt="ghpages" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/ghpages_vector.svg"></a>
 </p>
 
 <p align="center">
@@ -22,7 +20,7 @@
 
 <br><br>
 
-![Features](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20Features%20Render.png?raw=true)
+![Features](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20Features%20Render.png?raw=true)
 
 ### > 🖋️ | Found and manage a company in a fully simulated economy
 Create: Kontor simulates a full economy including market, prices, demand, economic cycles and policy rates.
@@ -49,7 +47,7 @@ Fully customizable through data packs and configs.
 
 <br><br>
 
-![How it works](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20How%20It%20Works%20Render.png?raw=true)
+![How it works](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20How%20It%20Works%20Render.png?raw=true)
 
 Using Create: Kontor you can found a company to **sell your items on a simulated market**. You will need to license your products to receive requests for your licensed products. Accept a request and you will need to produce the requested items. The price you set determines how many requests you will get. By hiring **employees**, you will get access to more features and information about your business!
 
@@ -59,7 +57,7 @@ See **Getting started** for more info. Or hire a **consultant** in-game and ask 
 
 <br><br>
 
-![Getting Started](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20Getting%20Started%20Render.png?raw=true)
+![Getting Started](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20Getting%20Started%20Render.png?raw=true)
 
 ### > 1️⃣ | Found a company
 Craft a **Kontor Desk** and right-click it. Enter a name and decide whether you want to take the founder's loan. After founding, you can right-click the Kontor Desk to access the management UI.
@@ -83,29 +81,24 @@ Hire a **consultant** for more info.
 
 <br><br>
 
-![Requirements and Compatibility](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20Requirements%20Render.png?raw=true)
+![Requirements and Compatibility](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20Requirements%20Render.png?raw=true)
 
 ### > ‼️ | Requirements and Dependencies
 - Create
 - LDLib2
 
 ### > ✅ | Integrations
-Create: Kontor has integrations with many other mods, including:
-- A
-- B
-- C
+It is planned to integrate Create: Kontor with many other mods.
 
 ### > ⚠️ | Incompatibilities
 If you find an incompatibility with another mod, please let me know and create a GitHub issue <a href="https://github.com/timasshoff/createkontor/issues">here</a>.
-- A
-- B
 
 ### > 🚨 | Updating to new versions
 **ALWAYS** create a **backup** before updating Create: Kontor. This mod has a lot of save data. Changing versions might break this save data and therefore your economy / companies. Although I try my best to not break existing worlds with updates, I do not take responsibility for any damage that might happen when updating Create: Kontor. You can use a backup mod like <a href="https://modrinth.com/mod/simple-backups">Simple Backups</a> to automatically create backups of your world.
 
 <br><br>
 
-![Configuration](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20Configuration%20Render.png?raw=true)
+![Configuration](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20Configuration%20Render.png?raw=true)
 
 ### > ⚙️ | Config Files
 Most constant values are configurable through the config files. Note that changes are only applied after restarting or leaving / rejoining the world. /reload is not enough. Be careful when changing the default settings and **always make backups**!
@@ -123,11 +116,9 @@ Most of the data that Create: Kontor uses to simulate the economy is configurabl
 
 Be careful when changing datapacks in an existing world. **Always make backups** before changing anything. 
 
-See the wiki for more detailed info on how to create custom datapacks for Create: Kontor.
-
 <br><br>
 
-![FAQ](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20FAQ%20Render.png?raw=true)
+![FAQ](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20FAQ%20Render.png?raw=true)
 
 <details>
 <summary>Why is this mod a Create Addon?</summary>
@@ -163,7 +154,7 @@ Yes, Create: Kontor has full multiplayer support. But depending on the size and 
 
 <details>
 <summary>Can I use Create: Kontor in modpacks?</summary>
-Yes, you can! See the wiki on how to configure Create: Kontor and add support for other mods.
+Yes, you can!
 </details>
 
 <details>
@@ -190,12 +181,10 @@ All AI-generated code has been marked with a comment saying that the code is AI-
 
 <br><br>
 
-![Links, Support and Credits](https://github.com/timasshoff/createkontor/blob/main/docs/Subtitle%20Links%20Credits%20Render.png?raw=true)
+![Links, Support and Credits](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20Links%20Credits%20Render.png?raw=true)
 
 If you find a bug or have a suggestion, please create a GitHub Issue <a href="https://github.com/timasshoff/createkontor/issues">here</a>.
 
 <p align="center">
  <a href="https://github.com/timasshoff/createkontor/"><img alt="github" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg"></a>
- <a href=""><img alt="discord-plural" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-plural_vector.svg"></a>
- <a href=""><img alt="ghpages" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/documentation/ghpages_vector.svg"></a>
 </p>
