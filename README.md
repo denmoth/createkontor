@@ -5,11 +5,7 @@
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0"><img alt="SA" height="24" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"></a>
 </p>
 
-![Create: Kontor](https://github.com/timasshoff/createkontor/blob/release        ConsultantWiki.register(
-                "power_outlets",
-                WikiCategory.BLOCKS,
-                Component.translatable("wiki.createkontor.page.power_outlets.title"),
-                PowerOutletsWikiPage::build);/docs/Title%20Render.png?raw=true)
+![Create: Kontor](https://github.com/timasshoff/createkontor/blob/release/docs/Title%20Render.png?raw=true)
 
 <p align="center">
  <a href="https://github.com/timasshoff/createkontor/"><img alt="github" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg"></a>
