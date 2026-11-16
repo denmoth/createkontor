@@ -122,10 +122,12 @@ jobs:
         if: ${{ !inputs.dev_release }}
         uses: Kira-NT/mc-publish@v3
         with:
-          modrinth-id: YOUR_MODRINTH_PROJECT_ID
+          modrinth-id: hwnXq0GO
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: YOUR_CURSEFORGE_PROJECT_ID
+          curseforge-id: 1810354
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+
+          files: build/libs/createkontor-${{ steps.meta.outputs.version }}.jar
 
           name: Create Kontor ${{ steps.meta.outputs.version }}
           version: ${{ steps.meta.outputs.version }}
@@ -137,7 +139,7 @@ jobs:
           java: 21
           dependencies: |
             create(required){modrinth:create}{curseforge:create}#(ignore:github)
-            ldlib2(required){modrinth:LDLIB2_MODRINTH_ID}{curseforge:LDLIB2_CURSEFORGE_ID}#(ignore:github)
+            ldlib2(required){modrinth:B1CBVXHX}{curseforge:626676}#(ignore:github)
 
       - name: Create GitHub release
         env:
