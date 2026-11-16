@@ -1282,14 +1282,6 @@ public class KontorLanguage {
                 "wiki.createkontor.page.managers.p2",
                 "Managers can do everything the owner can, except for inviting / firing managers and declaring bankruptcy.");
 
-        REGISTRATE.addRawLang("wiki.createkontor.page.economic_cycle.title", "Economic Cycle");
-
-        REGISTRATE.addRawLang("wiki.createkontor.page.policy_rate.title", "Policy Rate");
-
-        REGISTRATE.addRawLang("wiki.createkontor.page.employees.title", "Employees");
-
-        REGISTRATE.addRawLang("wiki.createkontor.page.lawyer.title", "Lawyer");
-
         REGISTRATE.addRawLang(
                 "wiki.createkontor.page.market_analyst.p1",
                 "The market analyst provides you with detailed infos about markets, raw materials and your participation in markets.");
@@ -1395,6 +1387,99 @@ public class KontorLanguage {
         REGISTRATE.addRawLang(
                 "wiki.createkontor.page.property_manager.p4",
                 "Hostile mobs do not spawn naturally on your land. You can also keep a property loaded while your company is active.");
+
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.lawyer.p1",
+                "The lawyer takes care of everything legal in your company. He upgrades the legal form of your company and handles licenses.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.lawyer.b1", "Legal Form");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.lawyer.p2",
+                "The lawyer can give you an overview of your current legal form and the upgrade to the next one. When every requirement is met, you can apply for the upgrade and the application fee is booked instantly.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.lawyer.b2", "Processing a Legal Form Application");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.lawyer.p3",
+                "Processing an application takes some time. It only continues while your company employs a lawyer. If the lawyer leaves, the application is cancelled and the fee is refunded.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.lawyer.b3", "Licenses");
+        REGISTRATE.addRawLang("wiki.createkontor.page.lawyer.p4", "The lawyer also handles licenses of your company:");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.lawyer.licenses",
+                "License Catalog: Buy new licenses\nLicenses: See your licenses and cancel them\n");
+
+        REGISTRATE.addRawLang("wiki.createkontor.page.economic_cycle.title", "Economic Cycle");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.economic_cycle.p1",
+                "The economy does not grow in a straight line. It moves in cycles growth and recession that affect all markets. One cycle lasts between %s and %s days.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.economic_cycle.b1", "Phases");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.economic_cycle.p2", "The economy is always in one of four phases:");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.economic_cycle.phases",
+                "Upswing: The economy is growing, but has not reached boom levels yet\nBoom: The economy is very strong\nDownswing: The economy is shrinking, but has not fallen into a recession yet\nRecession: The economy is shrinking and weak");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.economic_cycle.p3",
+                "The economic cycle influences the demand of all markets. Demand is high during a boom and low in a recession. You can see the effect in the demand of a market using a market analyst.");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.economic_cycle.p4",
+                "Not every market reacts the same. Food and basic goods are more immune to the cycle, while metal, mechanical and luxury markets react stronger to the cycle. In the long run, demand slowly grows.");
+
+        REGISTRATE.addRawLang("wiki.createkontor.page.policy_rate.title", "Policy Rate");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.policy_rate.p1",
+                "The policy rate is the base interest rate of the whole economy. Every other interest rate is built on top of it.");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.policy_rate.p2",
+                "The policy rate slowly follows the economic cycle. It is updated every %s days. With every update, the rate moves one step towards its target. In good times, the target is higher, in bad times it is lower.");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.policy_rate.p3",
+                "The policy rate influences what you pay for borrowed money. This includes any overdraft loans, any bank loans and the founders loan. Loans keep the rate that they were taken with. Borrowing money in a recession is thereby cheaper than borrowing during a boom.");
+
+        REGISTRATE.addRawLang("wiki.createkontor.page.employees.title", "Employees");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.employees.p1",
+                "Employees are villagers that sit next to an employee desk. Every employee costs a daily salary and unlocks abilities or informations for your company. The number of employees is limited by your legal form.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.employees.b1", "Hiring");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.employees.p2",
+                "Place a Create Seat directly next to an employee desk and seat an adult villager on it. The villager is automatically hired as an employee if:");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.employees.conditions",
+                "The company is active\nYour legal form has a free employee slot\nThe company is operational (= no payment difficulties)\nYou can afford the hiring bonus.");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.employees.p3",
+                "Hiring costs a one-time bonus of %s times the daily salary of the employee. The bonus is not charged, when an employee with the same role was dismissed on the same day. It is never refunded. Goggles show the salary and hiring bonus.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.employees.b2", "Salary");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.employees.p4",
+                "The salary is paid with every daily settlement for every employee who worked for your company at any time of that day. The salary is multiplied by the salary factor of your current legal form.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.employees.b3", "Dismissal");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.employees.p5",
+                "An employee is dismissed automatically when the seat stays empty for a few seconds.");
+
+        REGISTRATE.addRawLang("wiki.createkontor.page.power_outlets.title", "Power Outlets");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.power_outlets.p1",
+                "Power Outlets allow your company to buy stress units. There are two kinds: the Andesite Outlet and the Brass Outlet.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.power_outlets.scene1", "An Andesite Outlet and a Brass Outlet");
+        REGISTRATE.addRawLang("wiki.createkontor.page.power_outlets.b1", "Setting up an outlet");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.power_outlets.p2",
+                "An outlet belongs to the company of the player who placed it. It has a shaft on one side. The total number of outlets of one company is limited by the company's legal form. A lawyer can tell you the limit.");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.power_outlets.p3",
+                "Outlets only provide stress units while they are powered with redstone. The speed is set with a value box at the back of the outlet, up to %s RPM.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.power_outlets.b2", "Andesite Outlet");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.power_outlets.p4",
+                "The Andesite Outlet provides exactly the amount of stress units that you set in the value box on the side of the outlet. It can provide up to %s SU. You pay for the amount with every daily settlement as long as the outlet is running.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.power_outlets.b3", "Brass Outlet");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.power_outlets.p5",
+                "The Brass Outlet buys stress units automatically. It only buys what the connected network is missing. A single Brass Outlet can provide up to %s SU. They cost %s times as much as the stress units from an Andesite Outlet.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.power_outlets.b4", "Billing");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.power_outlets.p6",
+                "Provided stress units are counted while an outlet is running and booked with the next daily settlement. An outlet that is not running costs nothing. Outlets keep running, even if your company is inactive, as long as they are loaded.");
 
         REGISTRATE.addRawLang("createkontor.ponder.employee_desk_hiring.header", "Hiring Employees");
         REGISTRATE.addRawLang(

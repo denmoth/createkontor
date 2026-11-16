@@ -2,6 +2,7 @@ package com.timder.kontor.game.wiki;
 
 import com.timder.kontor.game.block.consultant.ConsultantWiki;
 import com.timder.kontor.game.wiki.page.*;
+import com.timder.kontor.registry.KontorBlocks;
 import net.minecraft.network.chat.Component;
 
 public final class KontorWikiPages {
@@ -76,22 +77,24 @@ public final class KontorWikiPages {
                 "economic_cycle",
                 WikiCategory.BASICS,
                 Component.translatable("wiki.createkontor.page.economic_cycle.title"),
-                (e) -> {});
+                EconomicCycleWikiPage::build);
         ConsultantWiki.register(
                 "policy_rate",
                 WikiCategory.BASICS,
                 Component.translatable("wiki.createkontor.page.policy_rate.title"),
-                (e) -> {});
+                PolicyRateWikiPage::build);
 
         ConsultantWiki.register(
                 "employees",
                 WikiCategory.EMPLOYEES,
                 Component.translatable("wiki.createkontor.page.employees.title"),
-                (e) -> {});
+                EmployeesWikiPage::build,
+                KontorBlocks.LAWYER_DESK.getId());
+
         ConsultantWiki.register(
-                "lawyer",
-                WikiCategory.EMPLOYEES,
-                Component.translatable("wiki.createkontor.page.lawyer.title"),
-                (e) -> {});
+                "power_outlets",
+                WikiCategory.BLOCKS,
+                Component.translatable("wiki.createkontor.page.power_outlets.title"),
+                PowerOutletsWikiPage::build);
     }
 }
