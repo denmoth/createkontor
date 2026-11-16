@@ -262,6 +262,7 @@
   "goggle.createkontor.logistics_manager_desk.status": "%s :ʞɹoʍʇǝu sɔıʇsıboꞀ",
   "goggle.createkontor.power_outlet.daily_cost": ":ʇsoƆ ʇuǝɹɹnƆ",
   "goggle.createkontor.power_outlet.daily_cost.value": "ʎɐp ɹǝd %s",
+  "goggle.createkontor.power_outlet.inactive": "ǝʌıʇɔɐuI",
   "hud.createkontor.settlement.best_day": "¡ɹɐɟ os ʎɐp ʇsǝᗺ ★",
   "hud.createkontor.settlement.comeback": "¡uǝʞoɹq ʞɐǝɹʇs ssoꞀ",
   "hud.createkontor.settlement.costs": "sʇsoƆ",

@@ -207,6 +207,7 @@ public class KontorLanguage {
 
         REGISTRATE.addRawLang("goggle.createkontor.power_outlet.daily_cost", "Current Cost:");
         REGISTRATE.addRawLang("goggle.createkontor.power_outlet.daily_cost.value", "%s per day");
+        REGISTRATE.addRawLang("goggle.createkontor.power_outlet.inactive", "Inactive");
 
         REGISTRATE.addRawLang("createkontor.display_source.company_overview", "Company Overview");
         REGISTRATE.addRawLang("display.createkontor.company_overview.balance", "Balance: %s");

@@ -43,6 +43,7 @@ public abstract class AbstractPowerOutletBlockEntity extends GeneratingKineticBl
     protected long pendingSuTicks;
 
     private ScrollValueBehaviour rotationSpeed;
+    private boolean inactive;
 
     public AbstractPowerOutletBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -99,12 +100,31 @@ public abstract class AbstractPowerOutletBlockEntity extends GeneratingKineticBl
         pendingSuTicks = 0;
     }
 
+    private void updateInactive() {
+        if (companyId == null || !(level instanceof ServerLevel serverLevel)) {
+            return;
+        }
+
+        Company company = CompanySavedData.get(serverLevel.getServer())
+                .getRegistry()
+                .get(companyId)
+                .orElse(null);
+        boolean shouldBeInactive = company == null || !company.isOperational();
+        if (shouldBeInactive == inactive) {
+            return;
+        }
+        inactive = shouldBeInactive;
+        updateGeneratedRotation();
+        notifyUpdate();
+    }
+
     @Override
     public float getGeneratedSpeed() {
         BlockState state = getBlockState();
         if (rotationSpeed == null
                 || !(state.getBlock() instanceof PowerOutletBlock)
                 || !state.getValue(PowerOutletBlock.POWERED)
+                || inactive
                 || getCompanyId() == null) {
             return 0;
         }
@@ -132,6 +152,9 @@ public abstract class AbstractPowerOutletBlockEntity extends GeneratingKineticBl
         super.write(tag, registries, clientPacket);
         CompanyBlockSupport.writeCompanyId(companyId, tag);
         CompanyBlockSupport.writeCompanyName(companyName, tag);
+        if (clientPacket) {
+            tag.putBoolean("Inactive", inactive);
+        }
     }
 
     @Override
@@ -139,6 +162,9 @@ public abstract class AbstractPowerOutletBlockEntity extends GeneratingKineticBl
         super.read(tag, registries, clientPacket);
         companyId = CompanyBlockSupport.readCompanyId(tag);
         companyName = CompanyBlockSupport.readCompanyName(tag);
+        if (clientPacket) {
+            inactive = tag.getBoolean("Inactive");
+        }
     }
 
     @Override
@@ -160,6 +186,7 @@ public abstract class AbstractPowerOutletBlockEntity extends GeneratingKineticBl
         }
         if ((level.getGameTime() % FLUSH_INTERVAL) == 0) {
             flushPower();
+            updateInactive();
         }
     }
 
@@ -199,10 +226,15 @@ public abstract class AbstractPowerOutletBlockEntity extends GeneratingKineticBl
                 .add(Component.translatable(CompanyBlockSupport.GOGGLE_COMPANY_BLOCK)
                         .withStyle(ChatFormatting.WHITE))
                 .forGoggles(tooltip, 0);
-
         CreateLang.builder()
                 .add(ComponentFormatting.highlightStandard(companyName))
                 .forGoggles(tooltip, 1);
+
+        if (inactive) {
+            CreateLang.builder(CreateKontor.MODID)
+                    .add(ComponentFormatting.errorTranslatable("goggle.createkontor.power_outlet.inactive"))
+                    .forGoggles(tooltip, 0);
+        }
 
         CreateLang.builder()
                 .add(ComponentFormatting.standardTranslatable("goggle.createkontor.power_outlet.daily_cost"))
