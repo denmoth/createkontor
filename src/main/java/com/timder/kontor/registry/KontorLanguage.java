@@ -1499,7 +1499,7 @@ public class KontorLanguage {
                 "It only provides stress units while it is powered with redstone.");
         REGISTRATE.addRawLang(
                 "createkontor.ponder.andesite_outlet.text_5",
-                "The company is billed for every provided stress unit, whether they are used or not. Engineers Googles show the daily cost.");
+                "The company is billed for every provided stress unit, whether they are used or not. Googles show the daily cost.");
         REGISTRATE.addRawLang(
                 "createkontor.ponder.andesite_outlet.text_6",
                 "If you need more information about outlets, ask a consultant.");
@@ -1524,7 +1524,7 @@ public class KontorLanguage {
                 "createkontor.ponder.brass_outlet.text_6", "If fewer stress units are needed, the outlet buys less.");
         REGISTRATE.addRawLang(
                 "createkontor.ponder.brass_outlet.text_7",
-                "The company is only billed for the stress units that were bought. They cost more than the ones from an Andesite Outlet. Engineers Goggles show the daily cost.");
+                "The company is only billed for the stress units that were bought. They cost more than the ones from an Andesite Outlet. Goggles show the daily cost.");
         REGISTRATE.addRawLang(
                 "createkontor.ponder.brass_outlet.text_8",
                 "If you need more information about outlets, ask a consultant.");

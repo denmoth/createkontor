@@ -175,6 +175,15 @@ public final class KontorBlocks {
                                     .setRolls(ConstantValue.exactly(1))
                                     .add(LootItem.lootTableItem(block))
                                     .when(ExplosionCondition.survivesExplosion()))))
+            .recipe((ctx, prov) -> ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ctx.get())
+                    .pattern("S")
+                    .pattern("C")
+                    .pattern("E")
+                    .define('S', AllBlocks.SHAFT)
+                    .define('C', AllBlocks.ANDESITE_CASING)
+                    .define('E', AllItems.ELECTRON_TUBE)
+                    .unlockedBy("has_kontor_desk", RegistrateRecipeProvider.has(KontorBlocks.KONTOR_DESK.get()))
+                    .save(prov))
             .lang("Andesite Outlet")
             .item()
             .model((ctx, prov) ->
@@ -207,6 +216,15 @@ public final class KontorBlocks {
                             .build();
                 });
             })
+            .recipe((ctx, prov) -> ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ctx.get())
+                    .pattern("S")
+                    .pattern("C")
+                    .pattern("P")
+                    .define('S', AllBlocks.SHAFT)
+                    .define('C', AllBlocks.BRASS_CASING)
+                    .define('P', AllItems.PRECISION_MECHANISM)
+                    .unlockedBy("has_kontor_desk", RegistrateRecipeProvider.has(KontorBlocks.KONTOR_DESK.get()))
+                    .save(prov))
             .loot((loot, block) -> loot.add(
                     block,
                     LootTable.lootTable()

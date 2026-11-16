@@ -55,12 +55,10 @@ public final class PowerRules {
                 continue;
             }
             Money cost = cost(suTicks, kind, params.power());
-            if (!cost.isPositive()) {
-                continue;
+            if (cost.isPositive()) {
+                company.account().book(day, BookingKind.POWER, cost.negate(), kind.bookingReference());
+                total = total.plus(cost);
             }
-            company.account().book(day, BookingKind.POWER, cost.negate(), kind.bookingReference());
-            company.setPower(state.without(kind));
-            total = total.plus(cost);
         }
         return total;
     }

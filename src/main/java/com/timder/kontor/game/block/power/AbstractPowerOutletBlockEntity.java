@@ -98,6 +98,7 @@ public abstract class AbstractPowerOutletBlockEntity extends GeneratingKineticBl
             data.setDirty();
         }
         pendingSuTicks = 0;
+        notifyUpdate();
     }
 
     private void updateInactive() {
@@ -152,6 +153,7 @@ public abstract class AbstractPowerOutletBlockEntity extends GeneratingKineticBl
         super.write(tag, registries, clientPacket);
         CompanyBlockSupport.writeCompanyId(companyId, tag);
         CompanyBlockSupport.writeCompanyName(companyName, tag);
+        tag.putLong("PendingSuTicks", pendingSuTicks);
         if (clientPacket) {
             tag.putBoolean("Inactive", inactive);
         }
@@ -162,6 +164,7 @@ public abstract class AbstractPowerOutletBlockEntity extends GeneratingKineticBl
         super.read(tag, registries, clientPacket);
         companyId = CompanyBlockSupport.readCompanyId(tag);
         companyName = CompanyBlockSupport.readCompanyName(tag);
+        pendingSuTicks = tag.getLong("PendingSuTicks");
         if (clientPacket) {
             inactive = tag.getBoolean("Inactive");
         }
@@ -183,6 +186,7 @@ public abstract class AbstractPowerOutletBlockEntity extends GeneratingKineticBl
         }
         if (getGeneratedSpeed() != 0) {
             pendingSuTicks += getStressUnits();
+            notifyUpdate();
         }
         if ((level.getGameTime() % FLUSH_INTERVAL) == 0) {
             flushPower();
