@@ -8,7 +8,7 @@ on:
         type: boolean
         default: false
       expected_version:
-        description: Safety check, base version you expect in gradle.properties (e.g. 0.2.0). Required unless dev release
+        description: Safety check, the BASE version you expect in gradle.properties (e.g. 1.0.0, not 1.0.0-beta.2). Required unless dev release
         type: string
         required: false
       version_type:
@@ -19,22 +19,6 @@ on:
           - beta
           - alpha
         default: release
-      highlights:
-        description: Highlights (free text, shown at the top)
-        type: string
-        required: false
-      additions:
-        description: Additions (separate entries with |)
-        type: string
-        required: false
-      balancing:
-        description: Balancing (separate entries with |)
-        type: string
-        required: false
-      bugs:
-        description: Bugs (separate entries with |)
-        type: string
-        required: false
 
 permissions:
   contents: write
@@ -101,54 +85,31 @@ jobs:
             echo "* Tag: \`$TAG\`"
             echo "* Base version in gradle.properties: \`$BASE\`"
             echo "* Target: $TARGETS"
+            echo "* Changelog file: \`changelog/$VERSION.md\`"
           } >> "$GITHUB_STEP_SUMMARY"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
 
-      - name: Build patch notes
+      - name: Load changelog
         env:
           DEV_RELEASE: ${{ inputs.dev_release }}
-          HIGHLIGHTS: ${{ inputs.highlights }}
-          ADDITIONS: ${{ inputs.additions }}
-          BALANCING: ${{ inputs.balancing }}
-          BUGS: ${{ inputs.bugs }}
+          VERSION: ${{ steps.meta.outputs.version }}
+          VERSION_TYPE: ${{ inputs.version_type }}
         run: |
-          trim() {
-            printf '%s' "$1" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
-          }
-
-          section() {
-            local title="$1" text="$2" item
-            if [ -z "$(trim "$text")" ]; then
-              return
-            fi
-            printf '## %s\n' "$title"
-            IFS='|' read -ra items <<< "$text"
-            for item in "${items[@]}"; do
-              item="$(trim "$item")"
-              if [ -n "$item" ]; then
-                printf '* %s\n' "$item"
-              fi
-            done
-            printf '\n'
-          }
-
-          {
-            if [ -n "$(trim "$HIGHLIGHTS")" ]; then
-              printf '%s\n\n' "$(trim "$HIGHLIGHTS")"
-            fi
-            section "Additions" "$ADDITIONS"
-            section "Balancing" "$BALANCING"
-            section "Bugs" "$BUGS"
-          } > notes.md
-
+          BASE=$(grep '^mod_version=' gradle.properties | cut -d= -f2)
+          if [ "$DEV_RELEASE" = "true" ]; then
+            echo "Dev build from \`$GITHUB_REF_NAME\` at commit \`${GITHUB_SHA::7}\`. Not for regular play, worlds may break." > notes.md
+          elif [ -f "changelog/$VERSION.md" ]; then
+            cp "changelog/$VERSION.md" notes.md
+          elif [ "$VERSION_TYPE" != "release" ] && [ -f "changelog/$BASE.md" ]; then
+            cp "changelog/$BASE.md" notes.md
+          else
+            echo "Missing changelog/$VERSION.md (betas and alphas may use changelog/$BASE.md). Write it and commit it first. Nothing was published."
+            exit 1
+          fi
           if [ ! -s notes.md ]; then
-            if [ "$DEV_RELEASE" = "true" ]; then
-              echo "Dev build." > notes.md
-            else
-              echo "No patch notes given. Fill at least one field."
-              exit 1
-            fi
+            echo "The changelog file is empty. Nothing was published."
+            exit 1
           fi
           cat notes.md
 
