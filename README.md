@@ -88,15 +88,10 @@ Hire a **consultant** for more info.
 - LDLib2
 
 ### > ✅ | Integrations
-Create: Kontor has integrations with many other mods, including:
-- A
-- B
-- C
+It is planned to integrate Create: Kontor with many other mods.
 
 ### > ⚠️ | Incompatibilities
 If you find an incompatibility with another mod, please let me know and create a GitHub issue <a href="https://github.com/timasshoff/createkontor/issues">here</a>.
-- A
-- B
 
 ### > 🚨 | Updating to new versions
 **ALWAYS** create a **backup** before updating Create: Kontor. This mod has a lot of save data. Changing versions might break this save data and therefore your economy / companies. Although I try my best to not break existing worlds with updates, I do not take responsibility for any damage that might happen when updating Create: Kontor. You can use a backup mod like <a href="https://modrinth.com/mod/simple-backups">Simple Backups</a> to automatically create backups of your world.
