@@ -1,0 +1,38 @@
+name: Suggestion
+description: Suggest a new feature, improvement or change.
+labels: ["type/suggestion"]
+projects: ["Create: Kontor"]
+type: suggestion
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for playing Create: Kontor and thank you for giving feedback and suggesting new ideas!
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: What category is your suggestion?
+      options:
+        - Feature (Something new)
+        - Improvement (Making something existing better)
+        - Balancing
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: other_mods
+    attributes:
+      label: Description
+      description: Describe your suggestion as detailed as possible. Explain how your suggestion would improve the mod or which problem it would solve.
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots and other attachments
+      description: Drag and drop relevant files (e.g. sketches) into this field.
+    validations:
+      required: false
