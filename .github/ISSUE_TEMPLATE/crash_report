@@ -1,0 +1,65 @@
+name: Crash Report
+description: File a crash report.
+title: "Bug: "
+labels: ["type/crash"]
+projects: ["Create: Kontor"]
+type: crash
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for playing Create: Kontor!
+
+        **Before you file a new crash report:**
+        - Search the [existing issues](https://github.com/timasshoff/createkontor/issues) first to check if your crash has already been reported.
+        - Betas can break save data. **Keep a backup of your world.**
+
+  - type: input
+    id: version
+    attributes:
+      label: "Create: Kontor Version"
+      description: Shown in the file name of your .jar or in the mod list.
+      placeholder: "1.0.0-beta.1"
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: NeoForge, Create and LDLib2 versions
+      placeholder: "NeoForge 21.1.250, Create 6.0.10, LDLib2 2.2.40"
+    validations:
+      required: true
+
+  - type: textarea
+    id: other_mods
+    attributes:
+      label: Other mods
+      description: A modpack link or a short list is enough.
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Description
+      description: Describe when the crash occured and what you did before.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log
+      description: Paste your crash log. If your log does not fit here, upload them to https://mclo.gs/ and paste the link here.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots and other attachments
+      description: Drag and drop files into this field.
+    validations:
+      required: false
