@@ -16,7 +16,9 @@ import com.timder.kontor.game.network.KontorNetwork;
 import com.timder.kontor.game.property.BiomeMeasurer;
 import com.timder.kontor.game.property.PropertyProtection;
 import com.timder.kontor.game.ui.CheckbookUi;
+import com.timder.kontor.game.villager.VillagerEmeraldFollowing;
 import com.timder.kontor.game.wiki.KontorWikiPages;
+import com.timder.kontor.registry.KontorItems;
 import com.timder.kontor.registry.KontorRegistries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -54,6 +56,7 @@ public class CreateKontor {
         NeoForge.EVENT_BUS.register(KontorTickHandler.class);
         NeoForge.EVENT_BUS.register(EmployeeDeskInteraction.class);
         NeoForge.EVENT_BUS.register(PropertyProtection.class);
+        NeoForge.EVENT_BUS.register(VillagerEmeraldFollowing.class);
 
         NeoForge.EVENT_BUS.addListener(KontorChunkLoading::onServerStopped);
         NeoForge.EVENT_BUS.addListener(BiomeMeasurer::onServerTick);
@@ -80,6 +83,7 @@ public class CreateKontor {
 
     private void commonSetup(FMLCommonSetupEvent event) {
         PlayerUIMenuType.register(CHECKBOOK_UI, player -> CheckbookUi::create);
+        event.enqueueWork(KontorItems::registerVanillaTooltips);
     }
 
     private void gatherData(GatherDataEvent event) {

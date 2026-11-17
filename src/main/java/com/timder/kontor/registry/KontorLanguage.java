@@ -1056,6 +1056,13 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("item.createkontor.checkbook.tooltip.control1", "When R-Clicked");
         REGISTRATE.addRawLang("item.createkontor.checkbook.tooltip.action1", "Opens the _Checkbook_.");
 
+        REGISTRATE.addRawLang(
+                "item.minecraft.emerald.tooltip.summary", "Villagers seem to be very _attracted_ by emeralds...");
+        REGISTRATE.addRawLang("item.minecraft.emerald.tooltip.condition1", "When held by a company member");
+        REGISTRATE.addRawLang("item.minecraft.emerald.tooltip.behaviour1", "Nearby adult _Villagers_ follow you.");
+        REGISTRATE.addRawLang("item.minecraft.emerald.tooltip.control1", "When Sneaking");
+        REGISTRATE.addRawLang("item.minecraft.emerald.tooltip.action1", "_Stops_ Villagers from following you.");
+
         REGISTRATE.addRawLang("wiki.createkontor.show_ponder", "Ponder");
         REGISTRATE.addRawLang("wiki.createkontor.category.guides", "Guides & Tips");
         REGISTRATE.addRawLang("wiki.createkontor.category.basics", "Basics");
@@ -1109,7 +1116,7 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("wiki.createkontor.page.getting_started.b2", "(1) Hire a lawyer");
         REGISTRATE.addRawLang(
                 "wiki.createkontor.page.getting_started.p3",
-                "To sell items on markets, you need a license for the item you want to sell. A lawyer can buy licenses for you. Craft a Lawyer's Desk and seat a villager next to it using a Create Seat. Right click the villager to open the lawyer UI. Buy a license for your first product(s) in the License Catalog.");
+                "To sell items on markets, you need a license for the item you want to sell. A lawyer can buy licenses for you. Craft a Lawyer's Desk and seat a villager next to it using a Create Seat. Villagers follow you while you hold an emerald, which makes it easy to lead one to your desk. Right click the villager to open the lawyer UI. Buy a license for your first product(s) in the License Catalog.");
         REGISTRATE.addRawLang("wiki.createkontor.page.getting_started.b3", "(2) Participate in a market");
         REGISTRATE.addRawLang(
                 "wiki.createkontor.page.getting_started.p4",
