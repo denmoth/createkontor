@@ -51,6 +51,12 @@ public final class KontorItems {
         TooltipModifier.REGISTRY.register(item, new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE));
     }
 
+    public static void registerVanillaTooltips() {
+        if (TooltipModifier.REGISTRY.get(Items.EMERALD) == null) {
+            tooltip(Items.EMERALD);
+        }
+    }
+
     static void touch() {}
 
     private KontorItems() {}
