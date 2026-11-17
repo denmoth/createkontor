@@ -6,6 +6,7 @@ import com.lowdragmc.lowdraglib2.gui.ui.ModularUI;
 import com.lowdragmc.lowdraglib2.gui.ui.UIElement;
 import com.lowdragmc.lowdraglib2.gui.ui.data.Horizontal;
 import com.lowdragmc.lowdraglib2.gui.ui.elements.Button;
+import com.lowdragmc.lowdraglib2.gui.ui.elements.Label;
 import com.lowdragmc.lowdraglib2.gui.ui.elements.ScrollerView;
 import com.lowdragmc.lowdraglib2.gui.ui.elements.SplitView;
 import com.timder.kontor.config.CompanyConfig;
@@ -68,12 +69,17 @@ public class PropertyManagerUi {
         split.right(selectedChunk(context, actions, selectedChunk));
 
         UIElement measurementError = UiContainer.headerWithSubtitle(
-                UiLabels.h2(
-                        Component.translatable("ui.createkontor.property_manager.measurement_active"),
-                        Horizontal.CENTER),
+                (Label) UiLabels.h2(
+                                Component.translatable("ui.createkontor.property_manager.measurement_active"),
+                                Horizontal.CENTER)
+                        .textStyle(style -> style.adaptiveWidth(false))
+                        .layout(layout -> layout.widthPercent(100)),
                 UiLabels.error(
-                        Component.translatable("ui.createkontor.property_manager.measurement_active.sub"),
-                        Horizontal.CENTER));
+                                Component.translatable("ui.createkontor.property_manager.measurement_active.sub"),
+                                Horizontal.CENTER)
+                        .textStyle(style -> style.adaptiveWidth(false))
+                        .layout(layout -> layout.widthPercent(100)));
+        measurementError.layout(layout -> layout.widthPercent(100));
         content.addChildren(split, measurementError);
 
         measurementActive.addListener(() -> {
