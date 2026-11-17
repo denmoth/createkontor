@@ -1,0 +1,73 @@
+name: Bug Report
+description: File a bug report.
+title: "Bug: "
+labels: ["kind/bug"]
+projects: ["Create: Kontor"]
+type: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for playing Create: Kontor!
+
+        **Before you file a new bug report:**
+        - Search the [existing issues](https://github.com/timasshoff/createkontor/issues) first to check if your bug has already been reported.
+        - Betas can break save data. **Keep a backup of your world.**
+
+  - type: input
+    id: version
+    attributes:
+      label: "Create: Kontor Version"
+      description: Shown in the file name of your .jar or in the mod list.
+      placeholder: "1.0.0-beta.1"
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: NeoForge, Create and LDLib2 versions
+      placeholder: "NeoForge 21.1.250, Create 6.0.10, LDLib2 2.2.40"
+    validations:
+      required: true
+
+  - type: textarea
+    id: other_mods
+    attributes:
+      label: Other mods
+      description: A modpack link or a short list is enough.
+    validations:
+      required: false
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: Describe your bug.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction Steps
+      description: Describe what you did before the bug occurred. To fix a bug we need to be able to reproduce it.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log
+      description: Paste relevant parts of your log.
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots and other attachments
+      description: Drag and drop files into this field.
+    validations:
+      required: false

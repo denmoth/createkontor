@@ -124,9 +124,9 @@ jobs:
         if: ${{ !inputs.dev_release }}
         uses: Kira-NT/mc-publish@v3
         with:
-          modrinth-id: YOUR_MODRINTH_PROJECT_ID
+          modrinth-id: hwnXq0GO
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: YOUR_CURSEFORGE_PROJECT_ID
+          curseforge-id: 1810354
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           files: build/libs/createkontor-${{ steps.meta.outputs.mc_version }}-${{ steps.meta.outputs.version }}.jar
