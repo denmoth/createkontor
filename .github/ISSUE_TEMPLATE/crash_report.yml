@@ -39,15 +39,15 @@ body:
       required: false
 
   - type: dropdown
-      id: area
-      attributes:
-        label: Which environment crashed?
-        options:
-          - Client
-          - Server
-          - Client and Server
-      validations:
-        required: true
+    id: area
+    attributes:
+      label: Which environment crashed?
+      options:
+        - Client
+        - Server
+        - Client and Server
+    validations:
+      required: true
 
   - type: textarea
     id: steps
