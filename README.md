@@ -183,7 +183,7 @@ All AI-generated code has been marked with a comment saying that the code is AI-
 
 ![Links, Support and Credits](https://github.com/timasshoff/createkontor/blob/release/docs/Subtitle%20Links%20Credits%20Render.png?raw=true)
 
-If you find a bug or have a suggestion, please create a GitHub Issue <a href="https://github.com/timasshoff/createkontor/issues">here</a>.
+If you find a bug or have a suggestion, please create a GitHub Issue <a href="https://github.com/timasshoff/createkontor/issues">here</a>. Or send me a message on discord: timder_2
 
 <p align="center">
  <a href="https://github.com/timasshoff/createkontor/"><img alt="github" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg"></a>
