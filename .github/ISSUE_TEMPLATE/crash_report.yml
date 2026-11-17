@@ -1,7 +1,6 @@
 name: Crash Report
 description: File a crash report.
 title: "Crash: "
-labels: ["kind/crash"]
 projects: ["Create: Kontor"]
 type: crash
 body:
@@ -38,6 +37,17 @@ body:
       description: A modpack link or a short list is enough.
     validations:
       required: false
+
+- type: dropdown
+    id: area
+    attributes:
+      label: Which environment crashed?
+      options:
+        - Client
+        - Server
+        - Client and Server
+    validations:
+      required: true
 
   - type: textarea
     id: steps
