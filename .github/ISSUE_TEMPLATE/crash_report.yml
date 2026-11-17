@@ -1,7 +1,7 @@
 name: Crash Report
 description: File a crash report.
 title: "Crash: "
-labels: ["type/crash"]
+labels: ["kind/crash"]
 projects: ["Create: Kontor"]
 type: crash
 body:
