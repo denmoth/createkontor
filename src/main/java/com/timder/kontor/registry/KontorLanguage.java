@@ -269,7 +269,7 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("ui.createkontor.kontor_desk.tab.bankruptcy.status", "Current Liquidity: %s");
         REGISTRATE.addRawLang(
                 "ui.createkontor.kontor_desk.tab.bankruptcy.disclaimer",
-                "Declaring bankruptcy will permanently §cdelete §ryour company and allow you to start over with a new company. It is §cnot possible §rto reverse this or restore a deleted company. A new company will start at the zero exactly like this company did (lowest legal level, founders deposit + option of taking founders loan).");
+                "Declaring bankruptcy will permanently §cdelete §ryour company and allow you to start over with a new company. It is §cnot possible §rto reverse this or restore a deleted company. A new company will start at zero exactly like this company did (lowest legal level, founders deposit + option of taking founders loan).");
         REGISTRATE.addRawLang(
                 "ui.createkontor.kontor_desk.tab.bankruptcy.toggle",
                 "I understand what bankruptcy means and know that the effects are not reversible.");

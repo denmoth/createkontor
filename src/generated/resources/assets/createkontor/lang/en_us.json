@@ -596,7 +596,7 @@
   "ui.createkontor.kontor_desk.tab.balance": "Balance",
   "ui.createkontor.kontor_desk.tab.bankruptcy": "Bankruptcy",
   "ui.createkontor.kontor_desk.tab.bankruptcy.button": "Declare bankruptcy and delete company",
-  "ui.createkontor.kontor_desk.tab.bankruptcy.disclaimer": "Declaring bankruptcy will permanently §cdelete §ryour company and allow you to start over with a new company. It is §cnot possible §rto reverse this or restore a deleted company. A new company will start at the zero exactly like this company did (lowest legal level, founders deposit + option of taking founders loan).",
+  "ui.createkontor.kontor_desk.tab.bankruptcy.disclaimer": "Declaring bankruptcy will permanently §cdelete §ryour company and allow you to start over with a new company. It is §cnot possible §rto reverse this or restore a deleted company. A new company will start at zero exactly like this company did (lowest legal level, founders deposit + option of taking founders loan).",
   "ui.createkontor.kontor_desk.tab.bankruptcy.explanation": "When your company is §4illiquid §rfor %s days and thus §cinsolvent§r, you can declare bankruptcy.",
   "ui.createkontor.kontor_desk.tab.bankruptcy.not_insolvent": "Your company is not insolvent and you cannot declare bankruptcy.",
   "ui.createkontor.kontor_desk.tab.bankruptcy.status": "Current Liquidity: %s",
