@@ -678,7 +678,6 @@ public final class LawyerUi {
                 Money.ofCents(t.getLong("BankLoanLimitCents")),
                 t.getBoolean("AutoAcceptRequests"),
                 t.getBoolean("LogisticsNetwork"),
-                Money.ofCents(t.getLong("FreeStorageCents")),
                 t.getBoolean("FounderProtection"),
                 t.getInt("MaxShippingExits"),
                 t.getInt("MaxProperties"),
@@ -705,7 +704,6 @@ public final class LawyerUi {
         t.putLong("BankLoanLimitCents", legalForm.bankLoanLimit().cents());
         t.putBoolean("AutoAcceptRequests", legalForm.autoAcceptRequests());
         t.putBoolean("LogisticsNetwork", legalForm.logisticsNetwork());
-        t.putLong("FreeStorageCents", legalForm.freeStorage().cents());
         t.putBoolean("FounderProtection", legalForm.founderProtection());
         t.putInt("MaxShippingExits", legalForm.maxShippingExits());
         t.putInt("MaxProperties", legalForm.maxProperties());

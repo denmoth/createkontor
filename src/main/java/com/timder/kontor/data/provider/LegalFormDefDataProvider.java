@@ -45,7 +45,6 @@ public class LegalFormDefDataProvider implements DataProvider {
                 Money.ZERO, // Bank loan limit
                 false,
                 false,
-                Money.ZERO, // Free storage
                 true,
                 1,
                 6,
@@ -72,7 +71,6 @@ public class LegalFormDefDataProvider implements DataProvider {
                 Money.ofDollars(20000), // Bank loan limit
                 true,
                 false,
-                Money.ZERO, // Free storage
                 false,
                 2,
                 16,
@@ -105,7 +103,6 @@ public class LegalFormDefDataProvider implements DataProvider {
                 Money.ofDollars(100000), // Bank loan limit
                 true,
                 true,
-                Money.ofDollars(20000), // Free storage
                 false,
                 3,
                 48,
@@ -138,7 +135,6 @@ public class LegalFormDefDataProvider implements DataProvider {
                 Money.ofDollars(500000), // Bank loan limit
                 true,
                 true,
-                Money.ofDollars(40000), // Free storage
                 false,
                 6,
                 LegalFormDef.UNLIMITED,
@@ -174,7 +170,6 @@ public class LegalFormDefDataProvider implements DataProvider {
             Money bankloanLimit,
             boolean autoAcceptRequests,
             boolean logisticsNetwork,
-            Money freeStorage,
             boolean founderProtection,
             int maxShippingExits,
             int maxProperties,
@@ -198,7 +193,6 @@ public class LegalFormDefDataProvider implements DataProvider {
         json.addProperty("bankloan_limit_in_dollars", Math.round(bankloanLimit.toDollars()));
         json.addProperty("auto_accept_requests", autoAcceptRequests);
         json.addProperty("logistics_network", logisticsNetwork);
-        json.addProperty("free_storage_value_in_dollars", Math.round(freeStorage.toDollars()));
         json.addProperty("founder_protection", founderProtection);
         json.addProperty("max_shipping_exits", maxShippingExits);
         json.addProperty("max_properties", maxProperties);

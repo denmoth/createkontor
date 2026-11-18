@@ -23,7 +23,6 @@ import java.util.Objects;
  * @param bankLoanLimit The highest bank loan a company using this form can get
  * @param autoAcceptRequests Whether auto acceptance of orders is unlocked
  * @param logisticsNetwork Whether the company can connect to a logistics network
- * @param freeStorage Value of stock that costs no storage fee
  * @param founderProtection Whether the founder protection applies
  * @param maxShippingExits The max shipping exits
  * @param maxProperties The max chunks
@@ -47,7 +46,6 @@ public record LegalFormDef(
         Money bankLoanLimit,
         boolean autoAcceptRequests,
         boolean logisticsNetwork, // Unused for now (no logistics integration)
-        Money freeStorage,
         boolean founderProtection,
         int maxShippingExits,
         int maxProperties,
@@ -74,10 +72,8 @@ public record LegalFormDef(
         if (feedInLicenseTier < 0) throw new IllegalArgumentException("feedInLicenseTier must not be negative.");
         Objects.requireNonNull(overdraftLimit, "overdraftLimit must not be null.");
         Objects.requireNonNull(bankLoanLimit, "bankLoanLimit must not be null.");
-        Objects.requireNonNull(freeStorage, "freeStorage must not be null.");
         if (overdraftLimit.isNegative()) throw new IllegalArgumentException("overdraftLimit must not be negative.");
         if (bankLoanLimit.isNegative()) throw new IllegalArgumentException("bankLoanLimit must not be negative.");
-        if (freeStorage.isNegative()) throw new IllegalArgumentException("freeStorage must not be negative.");
         if (maxProperties < 0) throw new IllegalArgumentException("maxProperties must not be negative.");
         if (maxPowerOutlets < 0) throw new IllegalArgumentException("maxPowerOutlets must not be negative.");
         if (level == 1 && entryRequirements != null)
