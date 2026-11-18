@@ -80,7 +80,7 @@ public class LegalFormDefDataProvider implements DataProvider {
                 new UpgradeRequirements(
                         Money.ofDollars(10_000), // Fee
                         Money.ofDollars(5000), // Net worth
-                        1,
+                        10,
                         3,
                         24000,
                         7)));
