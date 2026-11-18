@@ -89,6 +89,8 @@ Hire a **consultant** for more info.
 
 ### > ✅ | Integrations
 It is planned to integrate Create: Kontor with many other mods.
+Currently officially integrated:
+- Create: Numismatics
 
 ### > ⚠️ | Incompatibilities
 If you find an incompatibility with another mod, please let me know and create a GitHub issue <a href="https://github.com/timasshoff/createkontor/issues">here</a>.
