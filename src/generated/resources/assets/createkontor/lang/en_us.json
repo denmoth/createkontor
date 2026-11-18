@@ -573,6 +573,7 @@
   "ui.createkontor.finances_manager.take_loan_title": "Offers for new bank loans",
   "ui.createkontor.grid.filter.show_all": "Show all",
   "ui.createkontor.kontor_desk.bookings_count": "Bookings (%s)",
+  "ui.createkontor.kontor_desk.bookings_day": "Day %s",
   "ui.createkontor.kontor_desk.business_fee.info": "§7A business fee of %s is charged every day and debited from the company's bank account.",
   "ui.createkontor.kontor_desk.company_name": "Company Name",
   "ui.createkontor.kontor_desk.current_overdraft_limit": "Overdraft Limit: %s",

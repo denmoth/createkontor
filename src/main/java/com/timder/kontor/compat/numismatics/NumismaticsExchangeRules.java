@@ -33,7 +33,7 @@ public class NumismaticsExchangeRules {
         if (!credit.isPositive()) {
             throw new IllegalStateException("Exchanging " + spurs + " spurs gives no credit.");
         }
-        company.account().book(day, BookingKind.EXCHANG, credit, reference);
+        company.account().book(day, BookingKind.EXCHANGE, credit, reference);
         return credit;
     }
 
@@ -47,6 +47,6 @@ public class NumismaticsExchangeRules {
         Objects.requireNonNull(reference, "reference must not be null.");
         if (day < 0) throw new IllegalArgumentException("day must not be negative.");
         if (!canBuyBack(company, cost)) throw new IllegalStateException("The company cannot pay " + cost + ".");
-        company.account().book(day, BookingKind.EXCHANG, cost.negate(), reference);
+        company.account().book(day, BookingKind.EXCHANGE, cost.negate(), reference);
     }
 }
