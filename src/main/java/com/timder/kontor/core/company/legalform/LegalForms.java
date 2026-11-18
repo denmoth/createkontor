@@ -94,7 +94,6 @@ public record LegalForms(List<LegalFormDef> forms) {
                         Money.ZERO, // bank loan limit
                         false, // automatic acceptance
                         false, // company network, dispatch, framework contracts
-                        Money.ZERO, // free storage
                         true, // founder protection
                         1,
                         2,
@@ -118,7 +117,6 @@ public record LegalForms(List<LegalFormDef> forms) {
                         Money.ofDollars(20_000),
                         true,
                         false,
-                        Money.ZERO,
                         false,
                         2,
                         6,
@@ -142,7 +140,6 @@ public record LegalForms(List<LegalFormDef> forms) {
                         Money.ofDollars(100_000),
                         true,
                         true,
-                        Money.ofDollars(20_000),
                         false,
                         4,
                         15,
@@ -166,7 +163,6 @@ public record LegalForms(List<LegalFormDef> forms) {
                         Money.ofDollars(500_000),
                         true,
                         true,
-                        Money.ofDollars(100_000),
                         false,
                         8,
                         3,

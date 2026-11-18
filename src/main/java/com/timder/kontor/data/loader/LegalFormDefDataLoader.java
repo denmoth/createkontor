@@ -70,7 +70,6 @@ public class LegalFormDefDataLoader extends SimpleJsonResourceReloadListener {
         Money bankloanLimit = Money.ofDollars(GsonHelper.getAsLong(object, "bankloan_limit_in_dollars"));
         boolean autoAcceptRequests = GsonHelper.getAsBoolean(object, "auto_accept_requests");
         boolean logisticsNetwork = GsonHelper.getAsBoolean(object, "logistics_network");
-        Money freeStorage = Money.ofDollars(GsonHelper.getAsLong(object, "free_storage_value_in_dollars"));
         boolean founderProtection = GsonHelper.getAsBoolean(object, "founder_protection");
         int maxShippingExits = GsonHelper.getAsInt(object, "max_shipping_exits");
         int maxProperties = GsonHelper.getAsInt(object, "max_properties");
@@ -98,7 +97,6 @@ public class LegalFormDefDataLoader extends SimpleJsonResourceReloadListener {
                 bankloanLimit,
                 autoAcceptRequests,
                 logisticsNetwork,
-                freeStorage,
                 founderProtection,
                 maxShippingExits,
                 maxProperties,
