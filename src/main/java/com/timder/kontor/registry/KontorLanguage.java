@@ -1102,6 +1102,17 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("item.minecraft.emerald.tooltip.control1", "When Sneaking");
         REGISTRATE.addRawLang("item.minecraft.emerald.tooltip.action1", "_Stops_ Villagers from following you.");
 
+        for (String coin : KontorItems.NUMISMATICS_COINS) {
+            String key = "item.numismatics." + coin + ".tooltip.";
+            REGISTRATE.addRawLang(
+                    key + "summary",
+                    "Currency of _Create Numismatics_. Can be _exchanged_ to dollars for your company.");
+            REGISTRATE.addRawLang(key + "condition1", "When exchanged in the Finances Manager");
+            REGISTRATE.addRawLang(
+                    key + "behaviour1",
+                    "Booked from your Numismatics bank account to your company's _bank account_ at the server's exchange rate.");
+        }
+
         REGISTRATE.addRawLang("wiki.createkontor.show_ponder", "Ponder");
         REGISTRATE.addRawLang("wiki.createkontor.category.guides", "Guides & Tips");
         REGISTRATE.addRawLang("wiki.createkontor.category.basics", "Basics");
@@ -1501,6 +1512,19 @@ public class KontorLanguage {
         REGISTRATE.addRawLang(
                 "wiki.createkontor.page.employees.p5",
                 "An employee is dismissed automatically when the seat stays empty for a few seconds.");
+
+        REGISTRATE.addRawLang("wiki.createkontor.page.numismatics.title", "Numismatics");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.numismatics.p1",
+                "With Create: Numismatics installed, your company can turn coins into company money and back with the help of a Finances Manager. Coins you exchange are removed from your Numismatics account and booked as financing.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.numismatics.b1", "Exchanging Spurs");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.numismatics.p2",
+                "Every company member can exchange spurs from their own Numismatics bank account. One spur is worth %s.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.numismatics.b2", "Buying Spurs Back");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.numismatics.p3",
+                "You can turn company money back into spurs with the same exchange rate. This is limited to the amount of spurs that were paid in before. The company must be operational.");
 
         REGISTRATE.addRawLang("wiki.createkontor.page.power_outlets.title", "Power Outlets");
         REGISTRATE.addRawLang(
