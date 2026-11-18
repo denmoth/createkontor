@@ -690,6 +690,7 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.deposit", "Deposit");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.loan_payout", "Loan Payout");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.loan_repayment", "Loan Repayment");
+        REGISTRATE.addRawLang("enum.createkontor.booking_kind.exchange_in", "Exchange");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.property_rent", "Property Rent");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.property_purchase", "Property Purchase");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.property_sale", "Property Sale");

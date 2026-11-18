@@ -31,6 +31,11 @@ repositories {
     maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
     maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate
     maven { url = "https://maven.firstdark.dev/snapshots" } // LDLib2
+
+    exclusiveContent {
+        forRepository { maven { url = "https://maven.ithundxr.dev/releases" } } // Numismatics
+        filter { includeGroup "dev.ithundxr.createnumismatics" }
+    }
 }
 
 base {
@@ -179,6 +184,9 @@ dependencies {
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    compileOnly("dev.ithundxr.createnumismatics:CreateNumismatics-neoforge-${minecraft_version}:${numismatics_version}") { transitive = false }
+    localRuntime("dev.ithundxr.createnumismatics:CreateNumismatics-neoforge-${minecraft_version}:${numismatics_version}") { transitive = false }
 }
 
 test {
