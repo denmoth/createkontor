@@ -2,6 +2,8 @@ package com.timder.kontor;
 
 import com.lowdragmc.lowdraglib2.gui.factory.PlayerUIMenuType;
 import com.mojang.logging.LogUtils;
+import com.timder.kontor.compat.numismatics.NumismaticsConfig;
+import com.timder.kontor.compat.numismatics.NumismaticsExchange;
 import com.timder.kontor.config.CompanyConfig;
 import com.timder.kontor.config.EconomyConfig;
 import com.timder.kontor.config.PropertyConfig;
@@ -79,6 +81,11 @@ public class CreateKontor {
         modContainer.registerConfig(ModConfig.Type.SERVER, EconomyConfig.SPEC, "createkontor-server-economy.toml");
         modContainer.registerConfig(ModConfig.Type.SERVER, CompanyConfig.SPEC, "createkontor-server-company.toml");
         modContainer.registerConfig(ModConfig.Type.SERVER, PropertyConfig.SPEC, "createkontor-server-property.toml");
+
+        if (NumismaticsExchange.isAvailable()) {
+            modContainer.registerConfig(
+                    ModConfig.Type.SERVER, NumismaticsConfig.SPEC, "createkontor-server-numismatics.toml");
+        }
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

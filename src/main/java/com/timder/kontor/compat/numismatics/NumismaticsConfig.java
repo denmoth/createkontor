@@ -11,7 +11,8 @@ public final class NumismaticsConfig {
     static {
         ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
-        builder.comment("Exchanging coins of Create: Numismatics into Create: Kontor money").push("currencyExchange");
+        builder.comment("Exchanging coins of Create: Numismatics into Create: Kontor money")
+                .push("currencyExchange");
         DOLLARS_PER_SPUR = builder.comment("Dollars a company gets for one spur")
                 .defineInRange("dollarsPerSpur", 1.0, 0.01, 10_000_000.0);
         builder.pop();

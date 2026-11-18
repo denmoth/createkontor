@@ -597,6 +597,44 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("ui.createkontor.finances_manager.loans_total", "Total borrowed: %s");
         REGISTRATE.addRawLang("ui.createkontor.finances_manager.loans_outstanding", "Still to repay: %s");
 
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.tab", "Numismatics");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.title", "Exchange Spurs");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.rate", "1 spur = %s");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.not_available", "Not available");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.paid_in", "Paid in spurs: %s");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.balance", "Your spurs: %s");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.spurs_to_money", "Spurs to Dollars");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.money_to_spurs", "Money to Spurs");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.spurs_to_exchange", "Spurs to exchange:");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.spurs_to_buy_back", "Spurs to buy back:");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.amount", "%s spur(s) = %s");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.no_spurs_to_money", "You do not have any spurs that you can exchange.");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.nothing_paid_in", "Your company has not paid in any spurs.");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.exchange", "Exchange");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.buy_back", "Buy back");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.exchanged", "Exchanged %s spurs for %s.");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.bought_back", "Bought back %s spurs for %s.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.not_available", "Create: Numismatics is not installed.");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.status.no_company", "You do not belong to a company.");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.status.invalid_amount", "Choose at least one spur.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.too_small", "This amount is worth less than one cent.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.not_enough_coins",
+                "You do not have enough spurs in your bank account.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.not_enough_paid_in",
+                "Your company has not paid in that many spurs.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.not_operational",
+                "A company in illiquidity cannot buy spurs back.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.not_enough_money", "The company does not have enough money.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.account_full", "Your bank account cannot hold that many spurs.");
+
         REGISTRATE.addRawLang("ui.createkontor.property_manager.chunk_map", "Map");
         REGISTRATE.addRawLang(
                 "ui.createkontor.property_manager.measurement_active",
@@ -690,7 +728,7 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.deposit", "Deposit");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.loan_payout", "Loan Payout");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.loan_repayment", "Loan Repayment");
-        REGISTRATE.addRawLang("enum.createkontor.booking_kind.exchange_in", "Exchange");
+        REGISTRATE.addRawLang("enum.createkontor.booking_kind.exchange", "Exchange");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.property_rent", "Property Rent");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.property_purchase", "Property Purchase");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.property_sale", "Property Sale");
