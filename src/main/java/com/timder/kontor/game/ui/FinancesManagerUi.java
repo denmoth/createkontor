@@ -13,6 +13,8 @@ import com.lowdragmc.lowdraglib2.gui.ui.elements.Button;
 import com.lowdragmc.lowdraglib2.gui.ui.elements.Label;
 import com.lowdragmc.lowdraglib2.gui.ui.elements.ScrollerView;
 import com.lowdragmc.lowdraglib2.gui.util.UISoundUtils;
+import com.timder.kontor.compat.numismatics.NumismaticsExchange;
+import com.timder.kontor.compat.numismatics.NumismaticsExchangeTab;
 import com.timder.kontor.config.CompanyConfig;
 import com.timder.kontor.core.company.Company;
 import com.timder.kontor.core.company.CompanyParams;
@@ -53,6 +55,12 @@ public class FinancesManagerUi {
         tabView.addTab(
                 UiContainer.tab(Component.translatable("ui.createkontor.finances_manager.policy_rate_tab")),
                 policyRateTab(context));
+
+        if (NumismaticsExchange.isAvailable()) {
+            tabView.addTab(
+                    UiContainer.tab(Component.translatable("ui.createkontor.numismatics.tab")),
+                    NumismaticsExchangeTab.create(context));
+        }
 
         var root = UiContainer.withHud(tabView, UiContainer.hudBox(context.company(), context.economy()));
         return new ModularUI(UiStyles.ui(root), context.player());

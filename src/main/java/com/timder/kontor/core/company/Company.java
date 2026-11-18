@@ -71,6 +71,8 @@ public final class Company {
 
     private PowerState power = PowerState.empty();
 
+    private long exchangedSpurs = 0;
+
     private long lastActiveDay = NEVER_ACTIVE;
     private boolean active = false;
     private long activeTicks = 0;
@@ -731,6 +733,22 @@ public final class Company {
         this.power = Objects.requireNonNull(power, "power must not be null.");
     }
 
+    public long exchangedSpurs() {
+        return exchangedSpurs;
+    }
+
+    public void addExchangedSpurs(long spurs) {
+        if (spurs <= 0) throw new IllegalArgumentException("spurs must be positive.");
+        exchangedSpurs = Math.addExact(exchangedSpurs, spurs);
+    }
+
+    public void removeExchangedSpurs(long spurs) {
+        if (spurs <= 0) throw new IllegalArgumentException("spurs must be positive.");
+        if (spurs > exchangedSpurs)
+            throw new IllegalStateException("The company has paid in only " + exchangedSpurs + " spurs.");
+        exchangedSpurs -= spurs;
+    }
+
     void setDaysInTrouble(int daysInTrouble) {
         if (daysInTrouble < 0) throw new IllegalArgumentException("daysInTrouble must not be negative.");
         this.daysInTrouble = daysInTrouble;
@@ -780,7 +798,8 @@ public final class Company {
             List<Departure> departures,
             LogisticsState logistics,
             List<PropertyHolding> properties,
-            PowerState power) {
+            PowerState power,
+            long exchangedSpurs) {
         public SaveState {
             Objects.requireNonNull(id, "id must not be null.");
             Objects.requireNonNull(name, "name must not be null.");
@@ -848,6 +867,8 @@ public final class Company {
             logistics = logistics == null ? LogisticsState.disconnected() : logistics;
             power = power == null ? PowerState.empty() : power;
 
+            if (exchangedSpurs < 0) throw new IllegalArgumentException("exchangedSpurs must not be negative.");
+
             properties = properties == null ? List.of() : List.copyOf(properties);
             Set<ChunkKey> chunks = new HashSet<>();
             for (PropertyHolding holding : properties) {
@@ -889,7 +910,8 @@ public final class Company {
                 List.copyOf(departures),
                 logistics,
                 List.copyOf(properties.values()),
-                power);
+                power,
+                exchangedSpurs);
     }
 
     public static Company restore(SaveState saveState) {
@@ -926,6 +948,7 @@ public final class Company {
         company.departures.addAll(saveState.departures());
         company.logistics = saveState.logistics();
         company.power = saveState.power();
+        company.exchangedSpurs = saveState.exchangedSpurs();
 
         for (PropertyHolding holding : saveState.properties()) {
             company.properties.put(holding.chunk(), holding);

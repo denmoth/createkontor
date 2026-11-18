@@ -597,6 +597,44 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("ui.createkontor.finances_manager.loans_total", "Total borrowed: %s");
         REGISTRATE.addRawLang("ui.createkontor.finances_manager.loans_outstanding", "Still to repay: %s");
 
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.tab", "Numismatics");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.title", "Exchange Spurs");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.rate", "1 spur = %s");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.not_available", "Not available");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.paid_in", "Paid in spurs: %s");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.balance", "Your spurs: %s");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.spurs_to_money", "Spurs to Dollars");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.money_to_spurs", "Money to Spurs");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.spurs_to_exchange", "Spurs to exchange:");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.spurs_to_buy_back", "Spurs to buy back:");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.amount", "%s spur(s) = %s");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.no_spurs_to_money", "You do not have any spurs that you can exchange.");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.nothing_paid_in", "Your company has not paid in any spurs.");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.exchange", "Exchange");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.buy_back", "Buy back");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.exchanged", "Exchanged %s spurs for %s.");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.bought_back", "Bought back %s spurs for %s.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.not_available", "Create: Numismatics is not installed.");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.status.no_company", "You do not belong to a company.");
+        REGISTRATE.addRawLang("ui.createkontor.numismatics.status.invalid_amount", "Choose at least one spur.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.too_small", "This amount is worth less than one cent.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.not_enough_coins",
+                "You do not have enough spurs in your bank account.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.not_enough_paid_in",
+                "Your company has not paid in that many spurs.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.not_operational",
+                "A company in illiquidity cannot buy spurs back.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.not_enough_money", "The company does not have enough money.");
+        REGISTRATE.addRawLang(
+                "ui.createkontor.numismatics.status.account_full", "Your bank account cannot hold that many spurs.");
+
         REGISTRATE.addRawLang("ui.createkontor.property_manager.chunk_map", "Map");
         REGISTRATE.addRawLang(
                 "ui.createkontor.property_manager.measurement_active",
@@ -690,6 +728,7 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.deposit", "Deposit");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.loan_payout", "Loan Payout");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.loan_repayment", "Loan Repayment");
+        REGISTRATE.addRawLang("enum.createkontor.booking_kind.exchange", "Exchange");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.property_rent", "Property Rent");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.property_purchase", "Property Purchase");
         REGISTRATE.addRawLang("enum.createkontor.booking_kind.property_sale", "Property Sale");
@@ -1062,6 +1101,17 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("item.minecraft.emerald.tooltip.behaviour1", "Nearby adult _Villagers_ follow you.");
         REGISTRATE.addRawLang("item.minecraft.emerald.tooltip.control1", "When Sneaking");
         REGISTRATE.addRawLang("item.minecraft.emerald.tooltip.action1", "_Stops_ Villagers from following you.");
+
+        for (String coin : KontorItems.NUMISMATICS_COINS) {
+            String key = "item.numismatics." + coin + ".tooltip.";
+            REGISTRATE.addRawLang(
+                    key + "summary",
+                    "Currency of _Create Numismatics_. Can be _exchanged_ to dollars for your company.");
+            REGISTRATE.addRawLang(key + "condition1", "When exchanged in the Finances Manager");
+            REGISTRATE.addRawLang(
+                    key + "behaviour1",
+                    "Booked from your Numismatics bank account to your company's _bank account_ at the server's exchange rate.");
+        }
 
         REGISTRATE.addRawLang("wiki.createkontor.show_ponder", "Ponder");
         REGISTRATE.addRawLang("wiki.createkontor.category.guides", "Guides & Tips");
@@ -1462,6 +1512,19 @@ public class KontorLanguage {
         REGISTRATE.addRawLang(
                 "wiki.createkontor.page.employees.p5",
                 "An employee is dismissed automatically when the seat stays empty for a few seconds.");
+
+        REGISTRATE.addRawLang("wiki.createkontor.page.numismatics.title", "Numismatics");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.numismatics.p1",
+                "With Create: Numismatics installed, your company can turn coins into company money and back with the help of a Finances Manager. Coins you exchange are removed from your Numismatics account and booked as financing.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.numismatics.b1", "Exchanging Spurs");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.numismatics.p2",
+                "Every company member can exchange spurs from their own Numismatics bank account. One spur is worth %s.");
+        REGISTRATE.addRawLang("wiki.createkontor.page.numismatics.b2", "Buying Spurs Back");
+        REGISTRATE.addRawLang(
+                "wiki.createkontor.page.numismatics.p3",
+                "You can turn company money back into spurs with the same exchange rate. This is limited to the amount of spurs that were paid in before. The company must be operational.");
 
         REGISTRATE.addRawLang("wiki.createkontor.page.power_outlets.title", "Power Outlets");
         REGISTRATE.addRawLang(

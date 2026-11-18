@@ -189,6 +189,7 @@ public class CompanySavedData extends SavedData {
         tag.put("Properties", properties);
 
         tag.put("Power", writePower(state.power()));
+        tag.putLong("ExchangedSpurs", state.exchangedSpurs());
 
         return tag;
     }
@@ -274,6 +275,8 @@ public class CompanySavedData extends SavedData {
         PowerState power =
                 tag.contains("Power", Tag.TAG_COMPOUND) ? readPower(tag.getCompound("Power")) : PowerState.empty();
 
+        long exchangedSpurs = tag.getLong("ExchangedSpurs");
+
         return new Company.SaveState(
                 id,
                 name,
@@ -301,7 +304,8 @@ public class CompanySavedData extends SavedData {
                 departures,
                 logistics,
                 properties,
-                power);
+                power,
+                exchangedSpurs);
     }
 
     private static CompoundTag writeAccount(Account.SaveState state) {

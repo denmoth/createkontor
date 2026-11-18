@@ -1,5 +1,6 @@
 package com.timder.kontor.game.wiki;
 
+import com.timder.kontor.compat.numismatics.NumismaticsExchange;
 import com.timder.kontor.game.block.consultant.ConsultantWiki;
 import com.timder.kontor.game.wiki.page.*;
 import com.timder.kontor.registry.KontorBlocks;
@@ -96,5 +97,13 @@ public final class KontorWikiPages {
                 WikiCategory.BLOCKS,
                 Component.translatable("wiki.createkontor.page.power_outlets.title"),
                 PowerOutletsWikiPage::build);
+
+        if (NumismaticsExchange.isAvailable()) {
+            ConsultantWiki.register(
+                    "numismatics",
+                    WikiCategory.BASICS,
+                    Component.translatable("wiki.createkontor.page.numismatics.title"),
+                    NumismaticsWikiPage::build);
+        }
     }
 }

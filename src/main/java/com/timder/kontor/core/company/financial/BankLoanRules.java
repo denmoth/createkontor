@@ -44,8 +44,12 @@ public final class BankLoanRules {
         BankLoanParams bank = params.bankLoans();
 
         Money byLegalForm = company.legalForm(params).bankLoanLimit();
-        Money byRevenue =
-                company.averageDailyRevenue(bank.creditLimitRevenueDays()).scaled(bank.creditLimitRevenueMultiple());
+        Money averageRevenue = company.averageDailyRevenue(bank.creditLimitRevenueDays());
+        BigDecimal revenueLimit = BigDecimal.valueOf(averageRevenue.cents())
+                .multiply(BigDecimal.valueOf(bank.creditLimitRevenueMultiple()));
+        Money byRevenue = revenueLimit.compareTo(BigDecimal.valueOf(byLegalForm.cents())) >= 0
+                ? byLegalForm
+                : averageRevenue.scaled(bank.creditLimitRevenueMultiple());
 
         Money owed = Money.ZERO;
         for (Loan loan : company.loans()) {
