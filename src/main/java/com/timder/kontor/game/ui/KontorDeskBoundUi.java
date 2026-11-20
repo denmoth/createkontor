@@ -260,19 +260,21 @@ public class KontorDeskBoundUi {
                 Money.ofCents(overdraftLimitCents.get()).toString())));
         overdraftLimitLabel.addSyncValue(overdraftLimitBinding.getSyncValue());
 
-        Button writeCheck = UiButtons.secondary(Component.translatable("ui.createkontor.kontor_desk.write_check"))
-                .setOnServerClick(e -> {
-                    if (!(player instanceof ServerPlayer serverPlayer)) return;
-                    boolean member = CompanySavedData.get(serverPlayer.getServer())
-                            .getRegistry()
-                            .companyOf(serverPlayer.getUUID())
-                            .isPresent();
-                    if (!member) {
-                        CompanyBlockSupport.message(serverPlayer, "message.createkontor.checkbook.not_member");
-                        return;
-                    }
-                    PlayerUIMenuType.openUI(serverPlayer, CreateKontor.CHECKBOOK_UI);
-                });
+        Button writeCheck =
+                (Button) UiButtons.secondary(Component.translatable("ui.createkontor.kontor_desk.write_check"))
+                        .setOnServerClick(e -> {
+                            if (!(player instanceof ServerPlayer serverPlayer)) return;
+                            boolean member = CompanySavedData.get(serverPlayer.getServer())
+                                    .getRegistry()
+                                    .companyOf(serverPlayer.getUUID())
+                                    .isPresent();
+                            if (!member) {
+                                CompanyBlockSupport.message(serverPlayer, "message.createkontor.checkbook.not_member");
+                                return;
+                            }
+                            PlayerUIMenuType.openUI(serverPlayer, CreateKontor.CHECKBOOK_UI);
+                        })
+                        .layout(layout -> layout.height(14));
 
         UIElement headerBlock = new UIElement()
                 .layout(layout -> layout.flexDirection(FlexDirection.COLUMN)

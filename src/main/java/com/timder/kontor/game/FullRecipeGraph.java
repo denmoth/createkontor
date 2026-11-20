@@ -40,20 +40,32 @@ public class FullRecipeGraph implements RecipeGraph {
             Recipe<?> recipe = recipeHolder.value();
             String context = recipeHolder.id().toString();
 
-            List<RecipeOutput> outputs = outputsOf(recipe, registryAccess);
-            if (outputs.isEmpty()) {
-                CreateKontor.LOGGER.warn("Recipe {} has no usable output, skipped.", context);
-                continue;
+            try {
+                List<RecipeOutput> outputs = outputsOf(recipe, registryAccess);
+                if (outputs.isEmpty()) {
+                    CreateKontor.LOGGER.warn("Recipe {} has no usable output, skipped.", context);
+                    continue;
+                }
+
+                String id = processIdOf(recipe);
+                if (id == null) {
+                    CreateKontor.LOGGER.warn("Recipe {} uses a recipe type that is not registered, skipped.", context);
+                    continue;
+                }
+
+                RecipeNode node = new RecipeNode(outputs, inputsOf(recipe, context), id);
+                for (RecipeOutput output : outputs) {
+                    graph.computeIfAbsent(output.item().value(), key -> new ArrayList<>())
+                            .add(node);
+                }
+
+                CreateKontor.LOGGER.debug("Recipe loaded: {}", recipeHolder.id());
+            } catch (RuntimeException e) {
+                CreateKontor.LOGGER.warn("Recipe {} could not be read, skipped: {}", context, e.toString());
+                CreateKontor.LOGGER.debug("Details for recipe {}", context, e);
             }
 
-            RecipeNode node = new RecipeNode(outputs, inputsOf(recipe, context), processIdOf(recipe));
-
-            for (RecipeOutput output : outputs) {
-                graph.computeIfAbsent(output.item().value(), key -> new ArrayList<>())
-                        .add(node);
-            }
-
-            CreateKontor.LOGGER.info("Recipe loaded: {}", recipeHolder.id());
+            CreateKontor.LOGGER.debug("Recipe loaded: {}", recipeHolder.id());
         }
 
         CreateKontor.LOGGER.info("Loaded a total of {} recipes.", graph.size());
@@ -65,7 +77,9 @@ public class FullRecipeGraph implements RecipeGraph {
     }
 
     private static String processIdOf(Recipe<?> recipe) {
-        return BuiltInRegistries.RECIPE_TYPE.getKey(recipe.getType()).toString();
+        return BuiltInRegistries.RECIPE_TYPE.getKey(recipe.getType()) == null
+                ? null
+                : BuiltInRegistries.RECIPE_TYPE.getKey(recipe.getType()).toString();
     }
 
     private static List<RecipeOutput> outputsOf(Recipe<?> recipe, RegistryAccess registryAccess) {
