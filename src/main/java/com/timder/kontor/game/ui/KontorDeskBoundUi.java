@@ -260,19 +260,21 @@ public class KontorDeskBoundUi {
                 Money.ofCents(overdraftLimitCents.get()).toString())));
         overdraftLimitLabel.addSyncValue(overdraftLimitBinding.getSyncValue());
 
-        Button writeCheck = UiButtons.secondary(Component.translatable("ui.createkontor.kontor_desk.write_check"))
-                .setOnServerClick(e -> {
-                    if (!(player instanceof ServerPlayer serverPlayer)) return;
-                    boolean member = CompanySavedData.get(serverPlayer.getServer())
-                            .getRegistry()
-                            .companyOf(serverPlayer.getUUID())
-                            .isPresent();
-                    if (!member) {
-                        CompanyBlockSupport.message(serverPlayer, "message.createkontor.checkbook.not_member");
-                        return;
-                    }
-                    PlayerUIMenuType.openUI(serverPlayer, CreateKontor.CHECKBOOK_UI);
-                });
+        Button writeCheck =
+                (Button) UiButtons.secondary(Component.translatable("ui.createkontor.kontor_desk.write_check"))
+                        .setOnServerClick(e -> {
+                            if (!(player instanceof ServerPlayer serverPlayer)) return;
+                            boolean member = CompanySavedData.get(serverPlayer.getServer())
+                                    .getRegistry()
+                                    .companyOf(serverPlayer.getUUID())
+                                    .isPresent();
+                            if (!member) {
+                                CompanyBlockSupport.message(serverPlayer, "message.createkontor.checkbook.not_member");
+                                return;
+                            }
+                            PlayerUIMenuType.openUI(serverPlayer, CreateKontor.CHECKBOOK_UI);
+                        })
+                        .layout(layout -> layout.height(14));
 
         UIElement headerBlock = new UIElement()
                 .layout(layout -> layout.flexDirection(FlexDirection.COLUMN)
@@ -355,50 +357,92 @@ public class KontorDeskBoundUi {
         title.addSyncValue(bookingsBinding.getSyncValue());
         content.addScrollViewChildren(title);
 
-        UIElement history = new UIElement().addSyncValue(bookingsBinding.getSyncValue());
+        UIElement history = new UIElement()
+                .layout(layout -> layout.gapAll(8).alignItems(AlignItems.CENTER))
+                .addSyncValue(bookingsBinding.getSyncValue());
         bookings.addListener(() -> {
             history.clearAllChildren();
-            List<Booking> reversedBookings = bookings.get().reversed();
+
+            UIElement sheet = null;
             long lastDay = 0;
-            boolean first = true;
-            for (Booking booking : reversedBookings) {
-                if (booking.day() != lastDay) {
-                    Component combined = Component.empty()
-                            .append(ComponentFormatting.dayColored(booking.day()))
-                            .append(ComponentFormatting.standard(" ("))
-                            .append(ComponentFormatting.moneyColored(booking.balanceAfter()))
-                            .append(ComponentFormatting.standard(")"));
-                    Label dayLabel = UiLabels.secondary(combined, Horizontal.LEFT);
-                    if (!first) {
-                        dayLabel.layout(layout -> layout.marginTop(8));
-                    }
-                    history.addChild(dayLabel);
-                    first = false;
+            boolean firstInSheet = true;
+
+            for (Booking booking : bookings.get().reversed()) {
+                if (sheet == null || booking.day() != lastDay) {
+                    sheet = new UIElement()
+                            .style(UiStyles.PAPER)
+                            .layout(layout -> layout.widthPercent(80)
+                                    .flexDirection(FlexDirection.COLUMN)
+                                    .paddingAll(8));
+                    sheet.addChild(UiPaper.primaryLabelValue(
+                            Component.translatable("ui.createkontor.kontor_desk.bookings_day", booking.day()),
+                            UiPaper.primary(
+                                    ComponentFormatting.moneyColored(booking.balanceAfter()), Horizontal.RIGHT)));
+                    sheet.addChild(UiPaper.doubleDivider());
+                    history.addChild(sheet);
                     lastDay = booking.day();
+                    firstInSheet = true;
                 }
 
-                List<Label> labels = new ArrayList<>(List.of(
-                        (Label) UiLabels.primary(ComponentFormatting.moneyColored(booking.amount()), Horizontal.LEFT)
-                                .textStyle(style -> style.adaptiveWidth(false))
-                                .layout(layout -> layout.width(70)),
-                        UiLabels.secondary(
-                                Component.translatable("enum.createkontor.booking_kind."
-                                                + booking.kind().toString().toLowerCase())
-                                        .append(" (")
-                                        .append(Component.translatable("enum.createkontor.booking_category."
-                                                + booking.kind()
-                                                        .category()
-                                                        .toString()
-                                                        .toLowerCase()))
-                                        .append(")"),
-                                Horizontal.LEFT)));
-                if (!booking.reference().isBlank()) {
-                    labels.add(UiLabels.tertiary(Component.literal(booking.reference()), Horizontal.LEFT));
+                if (!firstInSheet) {
+                    sheet.addChild(UiPaper.simpleDivider());
                 }
-                UIElement bookingElement = UiLabels.seperatedLabelRow(labels)
-                        .layout(layout -> layout.marginLeft(8).justifyContent(AlignContent.FLEX_START));
-                history.addChild(bookingElement);
+                firstInSheet = false;
+
+                sheet.addChild(UiPaper.labelValue(
+                        Component.translatable("enum.createkontor.booking_kind."
+                                + booking.kind().toString().toLowerCase()),
+                        UiPaper.primary(ComponentFormatting.moneyColored(booking.amount()), Horizontal.RIGHT)));
+
+                Component category = Component.translatable("enum.createkontor.booking_category."
+                        + booking.kind().category().toString().toLowerCase());
+                Component detail = booking.reference().isBlank()
+                        ? category
+                        : Component.empty().append(category).append(" · ").append(booking.reference());
+                sheet.addChild(UiPaper.paragraphTertiary(detail, Horizontal.LEFT));
             }
+
+            //            for (Booking booking : bookings.get().reversed()) {
+            //                if (booking.day() != lastDay) {
+            //                    Component combined = Component.empty()
+            //                            .append(ComponentFormatting.dayColored(booking.day()))
+            //                            .append(ComponentFormatting.standard(" ("))
+            //                            .append(ComponentFormatting.moneyColored(booking.balanceAfter()))
+            //                            .append(ComponentFormatting.standard(")"));
+            //                    Label dayLabel = UiLabels.secondary(combined, Horizontal.LEFT);
+            //                    if (!first) {
+            //                        dayLabel.layout(layout -> layout.marginTop(8));
+            //                    }
+            //                    history.addChild(dayLabel);
+            //                    first = false;
+            //                    lastDay = booking.day();
+            //                }
+            //
+            //                List<Label> labels = new ArrayList<>(List.of(
+            //                        (Label) UiLabels.primary(ComponentFormatting.moneyColored(booking.amount()),
+            // Horizontal.LEFT)
+            //                                .textStyle(style -> style.adaptiveWidth(false))
+            //                                .layout(layout -> layout.width(70)),
+            //                        UiLabels.secondary(
+            //                                Component.translatable("enum.createkontor.booking_kind."
+            //                                                + booking.kind().toString().toLowerCase())
+            //                                        .append(" (")
+            //
+            // .append(Component.translatable("enum.createkontor.booking_category."
+            //                                                + booking.kind()
+            //                                                        .category()
+            //                                                        .toString()
+            //                                                        .toLowerCase()))
+            //                                        .append(")"),
+            //                                Horizontal.LEFT)));
+            //                if (!booking.reference().isBlank()) {
+            //                    labels.add(UiLabels.tertiary(Component.literal(booking.reference()),
+            // Horizontal.LEFT));
+            //                }
+            //                UIElement bookingElement = UiLabels.seperatedLabelRow(labels)
+            //                        .layout(layout -> layout.marginLeft(8).justifyContent(AlignContent.FLEX_START));
+            //                history.addChild(bookingElement);
+            //            }
         });
 
         content.addScrollViewChildren(history);

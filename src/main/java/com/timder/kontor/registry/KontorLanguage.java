@@ -283,6 +283,7 @@ public class KontorLanguage {
         REGISTRATE.addRawLang("ui.createkontor.kontor_desk.current_overdraft_limit", "Overdraft Limit: %s");
         REGISTRATE.addRawLang("ui.createkontor.kontor_desk.net_worth", "Net Worth: %s");
         REGISTRATE.addRawLang("ui.createkontor.kontor_desk.bookings_count", "Bookings (%s)");
+        REGISTRATE.addRawLang("ui.createkontor.kontor_desk.bookings_day", "Day %s");
         REGISTRATE.addRawLang("ui.createkontor.kontor_desk.write_check", "Write a Check");
         REGISTRATE.addRawLang("ui.createkontor.kontor_desk.loans_count", "Open Loans (%s)");
         REGISTRATE.addRawLang("ui.createkontor.kontor_desk.loan.principal", "%s: %s");

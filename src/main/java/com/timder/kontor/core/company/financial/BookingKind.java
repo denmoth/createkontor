@@ -55,7 +55,7 @@ public enum BookingKind {
     /** Repayment of a loan. */
     LOAN_REPAYMENT(BookingCategory.FINANCING),
     /** Incoming exchanged money */
-    EXCHANG(BookingCategory.FINANCING),
+    EXCHANGE(BookingCategory.FINANCING),
 
     /** Purchase of property **/
     PROPERTY_PURCHASE(BookingCategory.INVESTMENT),

@@ -1,5 +1,6 @@
 package com.timder.kontor.game;
 
+import com.timder.kontor.CreateKontor;
 import com.timder.kontor.core.company.Company;
 import com.timder.kontor.core.company.CompanyHistoryEntry;
 import com.timder.kontor.core.company.CompanyId;
@@ -332,9 +333,22 @@ public class CompanySavedData extends SavedData {
         List<Booking> bookings = new ArrayList<>();
         for (Tag t : tag.getList("Bookings", Tag.TAG_COMPOUND)) {
             CompoundTag bookingTag = (CompoundTag) t;
+            String kindName = bookingTag.getString("Kind");
+            BookingKind kind;
+            try {
+                kind = BookingKind.valueOf(kindName);
+            } catch (IllegalArgumentException e) {
+                CreateKontor.LOGGER.warn(
+                        "Skipped booking with unknown kind '{}' (day {}, amount {} cents, reference '{}').",
+                        kindName,
+                        bookingTag.getLong("Day"),
+                        bookingTag.getLong("Amount"),
+                        bookingTag.getString("Reference"));
+                continue;
+            }
             bookings.add(new Booking(
                     bookingTag.getLong("Day"),
-                    BookingKind.valueOf(bookingTag.getString("Kind")),
+                    kind,
                     Money.ofCents(bookingTag.getLong("Amount")),
                     bookingTag.getString("Reference"),
                     Money.ofCents(bookingTag.getLong("BalanceAfter"))));
